@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" package="name.away.bot">
+    <properties>
+        <property name="filename">log/error.log</property>
+    </properties>
+
+    <appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %C{4}.%M - %msg%n" />
+        </Console>
+        <Console name="INFO" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %msg%n" />
+        </Console>
+        <File name="FILE_ERROR" fileName="${filename}">
+            <PatternLayout pattern="%d %-5p %C{32}.%M - %m%n" />
+        </File>
+    </appenders>
+    <loggers>
+        <root level="error">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE_ERROR"/>
+        </root>
+        <root level="debug">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        <root level="trace">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </loggers>
+</configuration>

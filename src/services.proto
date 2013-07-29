@@ -1,0 +1,46 @@
+package name.away.bot.api;
+option java_generic_services = true;
+option java_outer_classname = "ServerAPI";
+option java_package = "name.away.bot.api";
+
+message RequestId{
+  required string id = 1;  
+}
+message SuccessResponse{
+  required bool success = 1;
+  optional int32 error = 2;
+}
+//Register
+message RegisterRequest{  
+  required string id = 1;
+  required int32 max_mpc = 2;
+}
+//Jobs
+message GetJobsResponse{
+ repeated group Jobs = 1{
+    required int64 id = 1;
+    required string name = 2;
+    repeated string args = 3;  
+  }
+}
+ //Take job
+message TackJobRequest{
+  repeated group Jobs = 1{
+    required string id = 1;
+    required int64 jobId = 2; 
+  } 
+}
+//Job complete
+message JobCompletedRequest{
+  required string id = 1; 
+  required int64 jobId = 2; 
+  optional bytes result = 3;
+}
+
+service ServerAPIService {
+  rpc Register (RegisterRequest) returns (SuccessResponse);
+  rpc UnRegister (RequestId) returns (SuccessResponse);
+  rpc GetJobs (RequestId) returns (GetJobsResponse);
+  rpc TakeJobs (TackJobRequest) returns (SuccessResponse);
+  rpc JobCompleted (JobCompletedRequest) returns (SuccessResponse);
+}
