@@ -8,6 +8,102 @@
     <artifactId>server</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>only-library</id>
+                        <goals><goal>jar</goal></goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <classifier>server</classifier>
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                    <classpathPrefix>lib/</classpathPrefix>
+                                    <classpathLayoutType>simple</classpathLayoutType>
+                                    <mainClass>name.away.bot.server.Main</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>everything</id>
+                        <goals><goal>jar</goal></goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <classifier>client</classifier>
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                    <classpathPrefix>lib/</classpathPrefix>
+                                    <classpathLayoutType>simple</classpathLayoutType>
+                                    <mainClass>name.away.bot.client.Main</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.5.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/config/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>./config</directory>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>*.*</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -44,11 +140,6 @@
             <groupId>org.mod4j.org.apache.commons</groupId>
             <artifactId>cli</artifactId>
             <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.protobuf-rpc-pro</groupId>
-            <artifactId>protobuf-rpc-pro-duplex</artifactId>
-            <version>3.0.4</version>
         </dependency>
     </dependencies>
     

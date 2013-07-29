@@ -17,18 +17,17 @@ message RegisterRequest{
 }
 //Jobs
 message GetJobsResponse{
- repeated group Jobs = 1{
-    required int64 id = 1;
-    required string name = 2;
-    repeated string args = 3;  
+  repeated group Jobs = 1{
+    optional int64 id = 1;
+    optional string name = 2;
+    repeated string args = 3;
+    optional string guid = 4;
   }
 }
  //Take job
 message TackJobRequest{
-  repeated group Jobs = 1{
-    required string id = 1;
-    required int64 jobId = 2; 
-  } 
+  required string id = 1;
+  required int64 jobId = 2;
 }
 //Job complete
 message JobCompletedRequest{
@@ -37,10 +36,21 @@ message JobCompletedRequest{
   optional bytes result = 3;
 }
 
+message JobRequest{
+    required string name = 1;
+    repeated string args = 2;
+}
+
+message JobResponse{
+    required bytes result = 3;
+}
+
+
 service ServerAPIService {
   rpc Register (RegisterRequest) returns (SuccessResponse);
   rpc UnRegister (RequestId) returns (SuccessResponse);
   rpc GetJobs (RequestId) returns (GetJobsResponse);
   rpc TakeJobs (TackJobRequest) returns (SuccessResponse);
   rpc JobCompleted (JobCompletedRequest) returns (SuccessResponse);
+  rpc ExecuteJob (JobRequest) returns (JobResponse);
 }

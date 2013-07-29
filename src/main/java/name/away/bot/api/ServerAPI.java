@@ -1685,27 +1685,27 @@ public final class ServerAPI {
     public interface JobsOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
-      // required int64 id = 1;
+      // optional int64 id = 1;
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 id = 1;</code>
        */
       boolean hasId();
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 id = 1;</code>
        */
       long getId();
 
-      // required string name = 2;
+      // optional string name = 2;
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string name = 2;</code>
        */
       boolean hasName();
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string name = 2;</code>
        */
       java.lang.String getName();
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string name = 2;</code>
        */
       com.google.protobuf.ByteString
           getNameBytes();
@@ -1729,6 +1729,21 @@ public final class ServerAPI {
        */
       com.google.protobuf.ByteString
           getArgsBytes(int index);
+
+      // optional string guid = 4;
+      /**
+       * <code>optional string guid = 4;</code>
+       */
+      boolean hasGuid();
+      /**
+       * <code>optional string guid = 4;</code>
+       */
+      java.lang.String getGuid();
+      /**
+       * <code>optional string guid = 4;</code>
+       */
+      com.google.protobuf.ByteString
+          getGuidBytes();
     }
     /**
      * Protobuf type {@code name.away.bot.api.GetJobsResponse.Jobs}
@@ -1799,6 +1814,11 @@ public final class ServerAPI {
                 args_.add(input.readBytes());
                 break;
               }
+              case 34: {
+                bitField0_ |= 0x00000004;
+                guid_ = input.readBytes();
+                break;
+              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1842,33 +1862,33 @@ public final class ServerAPI {
       }
 
       private int bitField0_;
-      // required int64 id = 1;
+      // optional int64 id = 1;
       public static final int ID_FIELD_NUMBER = 1;
       private long id_;
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 id = 1;</code>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 id = 1;</code>
        */
       public long getId() {
         return id_;
       }
 
-      // required string name = 2;
+      // optional string name = 2;
       public static final int NAME_FIELD_NUMBER = 2;
       private java.lang.Object name_;
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string name = 2;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string name = 2;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -1885,7 +1905,7 @@ public final class ServerAPI {
         }
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -1931,24 +1951,60 @@ public final class ServerAPI {
         return args_.getByteString(index);
       }
 
+      // optional string guid = 4;
+      public static final int GUID_FIELD_NUMBER = 4;
+      private java.lang.Object guid_;
+      /**
+       * <code>optional string guid = 4;</code>
+       */
+      public boolean hasGuid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string guid = 4;</code>
+       */
+      public java.lang.String getGuid() {
+        java.lang.Object ref = guid_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            guid_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string guid = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getGuidBytes() {
+        java.lang.Object ref = guid_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          guid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
       private void initFields() {
         id_ = 0L;
         name_ = "";
         args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        guid_ = "";
       }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized != -1) return isInitialized == 1;
 
-        if (!hasId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasName()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
         memoizedIsInitialized = 1;
         return true;
       }
@@ -1964,6 +2020,9 @@ public final class ServerAPI {
         }
         for (int i = 0; i < args_.size(); i++) {
           output.writeBytes(3, args_.getByteString(i));
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeBytes(4, getGuidBytes());
         }
         getUnknownFields().writeTo(output);
       }
@@ -1990,6 +2049,10 @@ public final class ServerAPI {
           }
           size += dataSize;
           size += 1 * getArgsList().size();
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(4, getGuidBytes());
         }
         size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
@@ -2113,6 +2176,8 @@ public final class ServerAPI {
           bitField0_ = (bitField0_ & ~0x00000002);
           args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00000004);
+          guid_ = "";
+          bitField0_ = (bitField0_ & ~0x00000008);
           return this;
         }
 
@@ -2155,6 +2220,10 @@ public final class ServerAPI {
             bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.args_ = args_;
+          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.guid_ = guid_;
           result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
@@ -2189,19 +2258,16 @@ public final class ServerAPI {
             }
             onChanged();
           }
+          if (other.hasGuid()) {
+            bitField0_ |= 0x00000008;
+            guid_ = other.guid_;
+            onChanged();
+          }
           this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
 
         public final boolean isInitialized() {
-          if (!hasId()) {
-            
-            return false;
-          }
-          if (!hasName()) {
-            
-            return false;
-          }
           return true;
         }
 
@@ -2224,22 +2290,22 @@ public final class ServerAPI {
         }
         private int bitField0_;
 
-        // required int64 id = 1;
+        // optional int64 id = 1;
         private long id_ ;
         /**
-         * <code>required int64 id = 1;</code>
+         * <code>optional int64 id = 1;</code>
          */
         public boolean hasId() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
         /**
-         * <code>required int64 id = 1;</code>
+         * <code>optional int64 id = 1;</code>
          */
         public long getId() {
           return id_;
         }
         /**
-         * <code>required int64 id = 1;</code>
+         * <code>optional int64 id = 1;</code>
          */
         public Builder setId(long value) {
           bitField0_ |= 0x00000001;
@@ -2248,7 +2314,7 @@ public final class ServerAPI {
           return this;
         }
         /**
-         * <code>required int64 id = 1;</code>
+         * <code>optional int64 id = 1;</code>
          */
         public Builder clearId() {
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -2257,16 +2323,16 @@ public final class ServerAPI {
           return this;
         }
 
-        // required string name = 2;
+        // optional string name = 2;
         private java.lang.Object name_ = "";
         /**
-         * <code>required string name = 2;</code>
+         * <code>optional string name = 2;</code>
          */
         public boolean hasName() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
         /**
-         * <code>required string name = 2;</code>
+         * <code>optional string name = 2;</code>
          */
         public java.lang.String getName() {
           java.lang.Object ref = name_;
@@ -2280,7 +2346,7 @@ public final class ServerAPI {
           }
         }
         /**
-         * <code>required string name = 2;</code>
+         * <code>optional string name = 2;</code>
          */
         public com.google.protobuf.ByteString
             getNameBytes() {
@@ -2296,7 +2362,7 @@ public final class ServerAPI {
           }
         }
         /**
-         * <code>required string name = 2;</code>
+         * <code>optional string name = 2;</code>
          */
         public Builder setName(
             java.lang.String value) {
@@ -2309,7 +2375,7 @@ public final class ServerAPI {
           return this;
         }
         /**
-         * <code>required string name = 2;</code>
+         * <code>optional string name = 2;</code>
          */
         public Builder clearName() {
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -2318,7 +2384,7 @@ public final class ServerAPI {
           return this;
         }
         /**
-         * <code>required string name = 2;</code>
+         * <code>optional string name = 2;</code>
          */
         public Builder setNameBytes(
             com.google.protobuf.ByteString value) {
@@ -2424,6 +2490,80 @@ public final class ServerAPI {
           return this;
         }
 
+        // optional string guid = 4;
+        private java.lang.Object guid_ = "";
+        /**
+         * <code>optional string guid = 4;</code>
+         */
+        public boolean hasGuid() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>optional string guid = 4;</code>
+         */
+        public java.lang.String getGuid() {
+          java.lang.Object ref = guid_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            guid_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string guid = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+            getGuidBytes() {
+          java.lang.Object ref = guid_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            guid_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string guid = 4;</code>
+         */
+        public Builder setGuid(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+          guid_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string guid = 4;</code>
+         */
+        public Builder clearGuid() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          guid_ = getDefaultInstance().getGuid();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string guid = 4;</code>
+         */
+        public Builder setGuidBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+          guid_ = value;
+          onChanged();
+          return this;
+        }
+
         // @@protoc_insertion_point(builder_scope:name.away.bot.api.GetJobsResponse.Jobs)
       }
 
@@ -2479,12 +2619,6 @@ public final class ServerAPI {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      for (int i = 0; i < getJobsCount(); i++) {
-        if (!getJobs(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -2717,12 +2851,6 @@ public final class ServerAPI {
       }
 
       public final boolean isInitialized() {
-        for (int i = 0; i < getJobsCount(); i++) {
-          if (!getJobs(i).isInitialized()) {
-            
-            return false;
-          }
-        }
         return true;
       }
 
@@ -2999,30 +3127,30 @@ public final class ServerAPI {
   public interface TackJobRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated group Jobs = 1 {
+    // required string id = 1;
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required string id = 1;</code>
      */
-    java.util.List<name.away.bot.api.ServerAPI.TackJobRequest.Jobs> 
-        getJobsList();
+    boolean hasId();
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required string id = 1;</code>
      */
-    name.away.bot.api.ServerAPI.TackJobRequest.Jobs getJobs(int index);
+    java.lang.String getId();
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required string id = 1;</code>
      */
-    int getJobsCount();
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    // required int64 jobId = 2;
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required int64 jobId = 2;</code>
      */
-    java.util.List<? extends name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder> 
-        getJobsOrBuilderList();
+    boolean hasJobId();
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required int64 jobId = 2;</code>
      */
-    name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder getJobsOrBuilder(
-        int index);
+    long getJobId();
   }
   /**
    * Protobuf type {@code name.away.bot.api.TackJobRequest}
@@ -3079,13 +3207,14 @@ public final class ServerAPI {
               }
               break;
             }
-            case 11: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                jobs_ = new java.util.ArrayList<name.away.bot.api.ServerAPI.TackJobRequest.Jobs>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              jobs_.add(input.readGroup(1, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.PARSER,
-                  extensionRegistry));
+            case 10: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              jobId_ = input.readInt64();
               break;
             }
           }
@@ -3096,9 +3225,6 @@ public final class ServerAPI {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          jobs_ = java.util.Collections.unmodifiableList(jobs_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3130,623 +3256,82 @@ public final class ServerAPI {
       return PARSER;
     }
 
-    public interface JobsOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required string id = 1;
-      /**
-       * <code>required string id = 1;</code>
-       */
-      boolean hasId();
-      /**
-       * <code>required string id = 1;</code>
-       */
-      java.lang.String getId();
-      /**
-       * <code>required string id = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getIdBytes();
-
-      // required int64 jobId = 2;
-      /**
-       * <code>required int64 jobId = 2;</code>
-       */
-      boolean hasJobId();
-      /**
-       * <code>required int64 jobId = 2;</code>
-       */
-      long getJobId();
+    private int bitField0_;
+    // required string id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.Object id_;
+    /**
+     * <code>required string id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * Protobuf type {@code name.away.bot.api.TackJobRequest.Jobs}
+     * <code>required string id = 1;</code>
      */
-    public static final class Jobs extends
-        com.google.protobuf.GeneratedMessage
-        implements JobsOrBuilder {
-      // Use Jobs.newBuilder() to construct.
-      private Jobs(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          id_ = s;
+        }
+        return s;
       }
-      private Jobs(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final Jobs defaultInstance;
-      public static Jobs getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public Jobs getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Jobs(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                bitField0_ |= 0x00000001;
-                id_ = input.readBytes();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000002;
-                jobId_ = input.readInt64();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TackJobRequest_Jobs_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TackJobRequest_Jobs_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                name.away.bot.api.ServerAPI.TackJobRequest.Jobs.class, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<Jobs> PARSER =
-          new com.google.protobuf.AbstractParser<Jobs>() {
-        public Jobs parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Jobs(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Jobs> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // required string id = 1;
-      public static final int ID_FIELD_NUMBER = 1;
-      private java.lang.Object id_;
-      /**
-       * <code>required string id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string id = 1;</code>
-       */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            id_ = s;
-          }
-          return s;
-        }
-      }
-      /**
-       * <code>required string id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      // required int64 jobId = 2;
-      public static final int JOBID_FIELD_NUMBER = 2;
-      private long jobId_;
-      /**
-       * <code>required int64 jobId = 2;</code>
-       */
-      public boolean hasJobId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int64 jobId = 2;</code>
-       */
-      public long getJobId() {
-        return jobId_;
-      }
-
-      private void initFields() {
-        id_ = "";
-        jobId_ = 0L;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        if (!hasId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasJobId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getIdBytes());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt64(2, jobId_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getIdBytes());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, jobId_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static name.away.bot.api.ServerAPI.TackJobRequest.Jobs parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(name.away.bot.api.ServerAPI.TackJobRequest.Jobs prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code name.away.bot.api.TackJobRequest.Jobs}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TackJobRequest_Jobs_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TackJobRequest_Jobs_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  name.away.bot.api.ServerAPI.TackJobRequest.Jobs.class, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder.class);
-        }
-
-        // Construct using name.away.bot.api.ServerAPI.TackJobRequest.Jobs.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          id_ = "";
-          bitField0_ = (bitField0_ & ~0x00000001);
-          jobId_ = 0L;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TackJobRequest_Jobs_descriptor;
-        }
-
-        public name.away.bot.api.ServerAPI.TackJobRequest.Jobs getDefaultInstanceForType() {
-          return name.away.bot.api.ServerAPI.TackJobRequest.Jobs.getDefaultInstance();
-        }
-
-        public name.away.bot.api.ServerAPI.TackJobRequest.Jobs build() {
-          name.away.bot.api.ServerAPI.TackJobRequest.Jobs result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public name.away.bot.api.ServerAPI.TackJobRequest.Jobs buildPartial() {
-          name.away.bot.api.ServerAPI.TackJobRequest.Jobs result = new name.away.bot.api.ServerAPI.TackJobRequest.Jobs(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.id_ = id_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.jobId_ = jobId_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof name.away.bot.api.ServerAPI.TackJobRequest.Jobs) {
-            return mergeFrom((name.away.bot.api.ServerAPI.TackJobRequest.Jobs)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(name.away.bot.api.ServerAPI.TackJobRequest.Jobs other) {
-          if (other == name.away.bot.api.ServerAPI.TackJobRequest.Jobs.getDefaultInstance()) return this;
-          if (other.hasId()) {
-            bitField0_ |= 0x00000001;
-            id_ = other.id_;
-            onChanged();
-          }
-          if (other.hasJobId()) {
-            setJobId(other.getJobId());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasId()) {
-            
-            return false;
-          }
-          if (!hasJobId()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          name.away.bot.api.ServerAPI.TackJobRequest.Jobs parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (name.away.bot.api.ServerAPI.TackJobRequest.Jobs) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // required string id = 1;
-        private java.lang.Object id_ = "";
-        /**
-         * <code>required string id = 1;</code>
-         */
-        public boolean hasId() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required string id = 1;</code>
-         */
-        public java.lang.String getId() {
-          java.lang.Object ref = id_;
-          if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            id_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>required string id = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getIdBytes() {
-          java.lang.Object ref = id_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            id_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>required string id = 1;</code>
-         */
-        public Builder setId(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required string id = 1;</code>
-         */
-        public Builder clearId() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          id_ = getDefaultInstance().getId();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required string id = 1;</code>
-         */
-        public Builder setIdBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-          id_ = value;
-          onChanged();
-          return this;
-        }
-
-        // required int64 jobId = 2;
-        private long jobId_ ;
-        /**
-         * <code>required int64 jobId = 2;</code>
-         */
-        public boolean hasJobId() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required int64 jobId = 2;</code>
-         */
-        public long getJobId() {
-          return jobId_;
-        }
-        /**
-         * <code>required int64 jobId = 2;</code>
-         */
-        public Builder setJobId(long value) {
-          bitField0_ |= 0x00000002;
-          jobId_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int64 jobId = 2;</code>
-         */
-        public Builder clearJobId() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          jobId_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:name.away.bot.api.TackJobRequest.Jobs)
-      }
-
-      static {
-        defaultInstance = new Jobs(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:name.away.bot.api.TackJobRequest.Jobs)
-    }
-
-    // repeated group Jobs = 1 {
-    public static final int JOBS_FIELD_NUMBER = 1;
-    private java.util.List<name.away.bot.api.ServerAPI.TackJobRequest.Jobs> jobs_;
-    /**
-     * <code>repeated group Jobs = 1 { ... }</code>
-     */
-    public java.util.List<name.away.bot.api.ServerAPI.TackJobRequest.Jobs> getJobsList() {
-      return jobs_;
     }
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required string id = 1;</code>
      */
-    public java.util.List<? extends name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder> 
-        getJobsOrBuilderList() {
-      return jobs_;
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required int64 jobId = 2;
+    public static final int JOBID_FIELD_NUMBER = 2;
+    private long jobId_;
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
+    public boolean hasJobId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>repeated group Jobs = 1 { ... }</code>
+     * <code>required int64 jobId = 2;</code>
      */
-    public int getJobsCount() {
-      return jobs_.size();
-    }
-    /**
-     * <code>repeated group Jobs = 1 { ... }</code>
-     */
-    public name.away.bot.api.ServerAPI.TackJobRequest.Jobs getJobs(int index) {
-      return jobs_.get(index);
-    }
-    /**
-     * <code>repeated group Jobs = 1 { ... }</code>
-     */
-    public name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder getJobsOrBuilder(
-        int index) {
-      return jobs_.get(index);
+    public long getJobId() {
+      return jobId_;
     }
 
     private void initFields() {
-      jobs_ = java.util.Collections.emptyList();
+      id_ = "";
+      jobId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      for (int i = 0; i < getJobsCount(); i++) {
-        if (!getJobs(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasJobId()) {
+        memoizedIsInitialized = 0;
+        return false;
       }
       memoizedIsInitialized = 1;
       return true;
@@ -3755,8 +3340,11 @@ public final class ServerAPI {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < jobs_.size(); i++) {
-        output.writeGroup(1, jobs_.get(i));
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getIdBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, jobId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3767,9 +3355,13 @@ public final class ServerAPI {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < jobs_.size(); i++) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeGroupSize(1, jobs_.get(i));
+          .computeBytesSize(1, getIdBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, jobId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3883,7 +3475,6 @@ public final class ServerAPI {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getJobsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -3892,12 +3483,10 @@ public final class ServerAPI {
 
       public Builder clear() {
         super.clear();
-        if (jobsBuilder_ == null) {
-          jobs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          jobsBuilder_.clear();
-        }
+        id_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        jobId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3925,15 +3514,16 @@ public final class ServerAPI {
       public name.away.bot.api.ServerAPI.TackJobRequest buildPartial() {
         name.away.bot.api.ServerAPI.TackJobRequest result = new name.away.bot.api.ServerAPI.TackJobRequest(this);
         int from_bitField0_ = bitField0_;
-        if (jobsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            jobs_ = java.util.Collections.unmodifiableList(jobs_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.jobs_ = jobs_;
-        } else {
-          result.jobs_ = jobsBuilder_.build();
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
         }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.jobId_ = jobId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3949,42 +3539,26 @@ public final class ServerAPI {
 
       public Builder mergeFrom(name.away.bot.api.ServerAPI.TackJobRequest other) {
         if (other == name.away.bot.api.ServerAPI.TackJobRequest.getDefaultInstance()) return this;
-        if (jobsBuilder_ == null) {
-          if (!other.jobs_.isEmpty()) {
-            if (jobs_.isEmpty()) {
-              jobs_ = other.jobs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureJobsIsMutable();
-              jobs_.addAll(other.jobs_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.jobs_.isEmpty()) {
-            if (jobsBuilder_.isEmpty()) {
-              jobsBuilder_.dispose();
-              jobsBuilder_ = null;
-              jobs_ = other.jobs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              jobsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getJobsFieldBuilder() : null;
-            } else {
-              jobsBuilder_.addAllMessages(other.jobs_);
-            }
-          }
+        if (other.hasId()) {
+          bitField0_ |= 0x00000001;
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.hasJobId()) {
+          setJobId(other.getJobId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        for (int i = 0; i < getJobsCount(); i++) {
-          if (!getJobs(i).isInitialized()) {
-            
-            return false;
-          }
+        if (!hasId()) {
+          
+          return false;
+        }
+        if (!hasJobId()) {
+          
+          return false;
         }
         return true;
       }
@@ -4008,244 +3582,111 @@ public final class ServerAPI {
       }
       private int bitField0_;
 
-      // repeated group Jobs = 1 {
-      private java.util.List<name.away.bot.api.ServerAPI.TackJobRequest.Jobs> jobs_ =
-        java.util.Collections.emptyList();
-      private void ensureJobsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          jobs_ = new java.util.ArrayList<name.away.bot.api.ServerAPI.TackJobRequest.Jobs>(jobs_);
-          bitField0_ |= 0x00000001;
-         }
+      // required string id = 1;
+      private java.lang.Object id_ = "";
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
-          name.away.bot.api.ServerAPI.TackJobRequest.Jobs, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder, name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder> jobsBuilder_;
-
+      // required int64 jobId = 2;
+      private long jobId_ ;
       /**
-       * <code>repeated group Jobs = 1 { ... }</code>
+       * <code>required int64 jobId = 2;</code>
        */
-      public java.util.List<name.away.bot.api.ServerAPI.TackJobRequest.Jobs> getJobsList() {
-        if (jobsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(jobs_);
-        } else {
-          return jobsBuilder_.getMessageList();
-        }
+      public boolean hasJobId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>repeated group Jobs = 1 { ... }</code>
+       * <code>required int64 jobId = 2;</code>
        */
-      public int getJobsCount() {
-        if (jobsBuilder_ == null) {
-          return jobs_.size();
-        } else {
-          return jobsBuilder_.getCount();
-        }
+      public long getJobId() {
+        return jobId_;
       }
       /**
-       * <code>repeated group Jobs = 1 { ... }</code>
+       * <code>required int64 jobId = 2;</code>
        */
-      public name.away.bot.api.ServerAPI.TackJobRequest.Jobs getJobs(int index) {
-        if (jobsBuilder_ == null) {
-          return jobs_.get(index);
-        } else {
-          return jobsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder setJobs(
-          int index, name.away.bot.api.ServerAPI.TackJobRequest.Jobs value) {
-        if (jobsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureJobsIsMutable();
-          jobs_.set(index, value);
-          onChanged();
-        } else {
-          jobsBuilder_.setMessage(index, value);
-        }
+      public Builder setJobId(long value) {
+        bitField0_ |= 0x00000002;
+        jobId_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated group Jobs = 1 { ... }</code>
+       * <code>required int64 jobId = 2;</code>
        */
-      public Builder setJobs(
-          int index, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder builderForValue) {
-        if (jobsBuilder_ == null) {
-          ensureJobsIsMutable();
-          jobs_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          jobsBuilder_.setMessage(index, builderForValue.build());
-        }
+      public Builder clearJobId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        jobId_ = 0L;
+        onChanged();
         return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder addJobs(name.away.bot.api.ServerAPI.TackJobRequest.Jobs value) {
-        if (jobsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureJobsIsMutable();
-          jobs_.add(value);
-          onChanged();
-        } else {
-          jobsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder addJobs(
-          int index, name.away.bot.api.ServerAPI.TackJobRequest.Jobs value) {
-        if (jobsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureJobsIsMutable();
-          jobs_.add(index, value);
-          onChanged();
-        } else {
-          jobsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder addJobs(
-          name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder builderForValue) {
-        if (jobsBuilder_ == null) {
-          ensureJobsIsMutable();
-          jobs_.add(builderForValue.build());
-          onChanged();
-        } else {
-          jobsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder addJobs(
-          int index, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder builderForValue) {
-        if (jobsBuilder_ == null) {
-          ensureJobsIsMutable();
-          jobs_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          jobsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder addAllJobs(
-          java.lang.Iterable<? extends name.away.bot.api.ServerAPI.TackJobRequest.Jobs> values) {
-        if (jobsBuilder_ == null) {
-          ensureJobsIsMutable();
-          super.addAll(values, jobs_);
-          onChanged();
-        } else {
-          jobsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder clearJobs() {
-        if (jobsBuilder_ == null) {
-          jobs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          jobsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public Builder removeJobs(int index) {
-        if (jobsBuilder_ == null) {
-          ensureJobsIsMutable();
-          jobs_.remove(index);
-          onChanged();
-        } else {
-          jobsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder getJobsBuilder(
-          int index) {
-        return getJobsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder getJobsOrBuilder(
-          int index) {
-        if (jobsBuilder_ == null) {
-          return jobs_.get(index);  } else {
-          return jobsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public java.util.List<? extends name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder> 
-           getJobsOrBuilderList() {
-        if (jobsBuilder_ != null) {
-          return jobsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(jobs_);
-        }
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder addJobsBuilder() {
-        return getJobsFieldBuilder().addBuilder(
-            name.away.bot.api.ServerAPI.TackJobRequest.Jobs.getDefaultInstance());
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder addJobsBuilder(
-          int index) {
-        return getJobsFieldBuilder().addBuilder(
-            index, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.getDefaultInstance());
-      }
-      /**
-       * <code>repeated group Jobs = 1 { ... }</code>
-       */
-      public java.util.List<name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder> 
-           getJobsBuilderList() {
-        return getJobsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          name.away.bot.api.ServerAPI.TackJobRequest.Jobs, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder, name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder> 
-          getJobsFieldBuilder() {
-        if (jobsBuilder_ == null) {
-          jobsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              name.away.bot.api.ServerAPI.TackJobRequest.Jobs, name.away.bot.api.ServerAPI.TackJobRequest.Jobs.Builder, name.away.bot.api.ServerAPI.TackJobRequest.JobsOrBuilder>(
-                  jobs_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          jobs_ = null;
-        }
-        return jobsBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.TackJobRequest)
@@ -4919,6 +4360,1077 @@ public final class ServerAPI {
     // @@protoc_insertion_point(class_scope:name.away.bot.api.JobCompletedRequest)
   }
 
+  public interface JobRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string name = 1;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    // repeated string args = 2;
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    java.util.List<java.lang.String>
+    getArgsList();
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    int getArgsCount();
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code name.away.bot.api.JobRequest}
+   */
+  public static final class JobRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements JobRequestOrBuilder {
+    // Use JobRequest.newBuilder() to construct.
+    private JobRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private JobRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final JobRequest defaultInstance;
+    public static JobRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public JobRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JobRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              args_.add(input.readBytes());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          args_ = new com.google.protobuf.UnmodifiableLazyStringList(args_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.JobRequest.class, name.away.bot.api.ServerAPI.JobRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<JobRequest> PARSER =
+        new com.google.protobuf.AbstractParser<JobRequest>() {
+      public JobRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JobRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JobRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string name = 1;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // repeated string args = 2;
+    public static final int ARGS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    public java.util.List<java.lang.String>
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <code>repeated string args = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
+    }
+
+    private void initFields() {
+      name_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getNameBytes());
+      }
+      for (int i = 0; i < args_.size(); i++) {
+        output.writeBytes(2, args_.getByteString(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getNameBytes());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(args_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.JobRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(name.away.bot.api.ServerAPI.JobRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code name.away.bot.api.JobRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements name.away.bot.api.ServerAPI.JobRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.JobRequest.class, name.away.bot.api.ServerAPI.JobRequest.Builder.class);
+      }
+
+      // Construct using name.away.bot.api.ServerAPI.JobRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobRequest_descriptor;
+      }
+
+      public name.away.bot.api.ServerAPI.JobRequest getDefaultInstanceForType() {
+        return name.away.bot.api.ServerAPI.JobRequest.getDefaultInstance();
+      }
+
+      public name.away.bot.api.ServerAPI.JobRequest build() {
+        name.away.bot.api.ServerAPI.JobRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public name.away.bot.api.ServerAPI.JobRequest buildPartial() {
+        name.away.bot.api.ServerAPI.JobRequest result = new name.away.bot.api.ServerAPI.JobRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          args_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              args_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.args_ = args_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof name.away.bot.api.ServerAPI.JobRequest) {
+          return mergeFrom((name.away.bot.api.ServerAPI.JobRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(name.away.bot.api.ServerAPI.JobRequest other) {
+        if (other == name.away.bot.api.ServerAPI.JobRequest.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        name.away.bot.api.ServerAPI.JobRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.JobRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string name = 1;
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // repeated string args = 2;
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public java.util.List<java.lang.String>
+          getArgsList() {
+        return java.util.Collections.unmodifiableList(args_);
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        super.addAll(values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 2;</code>
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:name.away.bot.api.JobRequest)
+    }
+
+    static {
+      defaultInstance = new JobRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:name.away.bot.api.JobRequest)
+  }
+
+  public interface JobResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required bytes result = 3;
+    /**
+     * <code>required bytes result = 3;</code>
+     */
+    boolean hasResult();
+    /**
+     * <code>required bytes result = 3;</code>
+     */
+    com.google.protobuf.ByteString getResult();
+  }
+  /**
+   * Protobuf type {@code name.away.bot.api.JobResponse}
+   */
+  public static final class JobResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements JobResponseOrBuilder {
+    // Use JobResponse.newBuilder() to construct.
+    private JobResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private JobResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final JobResponse defaultInstance;
+    public static JobResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public JobResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JobResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000001;
+              result_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.JobResponse.class, name.away.bot.api.ServerAPI.JobResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<JobResponse> PARSER =
+        new com.google.protobuf.AbstractParser<JobResponse>() {
+      public JobResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JobResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JobResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required bytes result = 3;
+    public static final int RESULT_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString result_;
+    /**
+     * <code>required bytes result = 3;</code>
+     */
+    public boolean hasResult() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bytes result = 3;</code>
+     */
+    public com.google.protobuf.ByteString getResult() {
+      return result_;
+    }
+
+    private void initFields() {
+      result_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasResult()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(3, result_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, result_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.JobResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(name.away.bot.api.ServerAPI.JobResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code name.away.bot.api.JobResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements name.away.bot.api.ServerAPI.JobResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.JobResponse.class, name.away.bot.api.ServerAPI.JobResponse.Builder.class);
+      }
+
+      // Construct using name.away.bot.api.ServerAPI.JobResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        result_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobResponse_descriptor;
+      }
+
+      public name.away.bot.api.ServerAPI.JobResponse getDefaultInstanceForType() {
+        return name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance();
+      }
+
+      public name.away.bot.api.ServerAPI.JobResponse build() {
+        name.away.bot.api.ServerAPI.JobResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public name.away.bot.api.ServerAPI.JobResponse buildPartial() {
+        name.away.bot.api.ServerAPI.JobResponse result = new name.away.bot.api.ServerAPI.JobResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.result_ = result_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof name.away.bot.api.ServerAPI.JobResponse) {
+          return mergeFrom((name.away.bot.api.ServerAPI.JobResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(name.away.bot.api.ServerAPI.JobResponse other) {
+        if (other == name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance()) return this;
+        if (other.hasResult()) {
+          setResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasResult()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        name.away.bot.api.ServerAPI.JobResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.JobResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required bytes result = 3;
+      private com.google.protobuf.ByteString result_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes result = 3;</code>
+       */
+      public boolean hasResult() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bytes result = 3;</code>
+       */
+      public com.google.protobuf.ByteString getResult() {
+        return result_;
+      }
+      /**
+       * <code>required bytes result = 3;</code>
+       */
+      public Builder setResult(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        result_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes result = 3;</code>
+       */
+      public Builder clearResult() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        result_ = getDefaultInstance().getResult();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:name.away.bot.api.JobResponse)
+    }
+
+    static {
+      defaultInstance = new JobResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:name.away.bot.api.JobResponse)
+  }
+
   /**
    * Protobuf service {@code name.away.bot.api.ServerAPIService}
    */
@@ -4967,6 +5479,14 @@ public final class ServerAPI {
           name.away.bot.api.ServerAPI.JobCompletedRequest request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponse> done);
 
+      /**
+       * <code>rpc ExecuteJob(.name.away.bot.api.JobRequest) returns (.name.away.bot.api.JobResponse);</code>
+       */
+      public abstract void executeJob(
+          com.google.protobuf.RpcController controller,
+          name.away.bot.api.ServerAPI.JobRequest request,
+          com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobResponse> done);
+
     }
 
     public static com.google.protobuf.Service newReflectiveService(
@@ -5012,6 +5532,14 @@ public final class ServerAPI {
           impl.jobCompleted(controller, request, done);
         }
 
+        @java.lang.Override
+        public  void executeJob(
+            com.google.protobuf.RpcController controller,
+            name.away.bot.api.ServerAPI.JobRequest request,
+            com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobResponse> done) {
+          impl.executeJob(controller, request, done);
+        }
+
       };
     }
 
@@ -5044,6 +5572,8 @@ public final class ServerAPI {
               return impl.takeJobs(controller, (name.away.bot.api.ServerAPI.TackJobRequest)request);
             case 4:
               return impl.jobCompleted(controller, (name.away.bot.api.ServerAPI.JobCompletedRequest)request);
+            case 5:
+              return impl.executeJob(controller, (name.away.bot.api.ServerAPI.JobRequest)request);
             default:
               throw new java.lang.AssertionError("Can't get here.");
           }
@@ -5068,6 +5598,8 @@ public final class ServerAPI {
               return name.away.bot.api.ServerAPI.TackJobRequest.getDefaultInstance();
             case 4:
               return name.away.bot.api.ServerAPI.JobCompletedRequest.getDefaultInstance();
+            case 5:
+              return name.away.bot.api.ServerAPI.JobRequest.getDefaultInstance();
             default:
               throw new java.lang.AssertionError("Can't get here.");
           }
@@ -5092,6 +5624,8 @@ public final class ServerAPI {
               return name.away.bot.api.ServerAPI.SuccessResponse.getDefaultInstance();
             case 4:
               return name.away.bot.api.ServerAPI.SuccessResponse.getDefaultInstance();
+            case 5:
+              return name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance();
             default:
               throw new java.lang.AssertionError("Can't get here.");
           }
@@ -5140,6 +5674,14 @@ public final class ServerAPI {
         name.away.bot.api.ServerAPI.JobCompletedRequest request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponse> done);
 
+    /**
+     * <code>rpc ExecuteJob(.name.away.bot.api.JobRequest) returns (.name.away.bot.api.JobResponse);</code>
+     */
+    public abstract void executeJob(
+        com.google.protobuf.RpcController controller,
+        name.away.bot.api.ServerAPI.JobRequest request,
+        com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobResponse> done);
+
     public static final
         com.google.protobuf.Descriptors.ServiceDescriptor
         getDescriptor() {
@@ -5187,6 +5729,11 @@ public final class ServerAPI {
             com.google.protobuf.RpcUtil.<name.away.bot.api.ServerAPI.SuccessResponse>specializeCallback(
               done));
           return;
+        case 5:
+          this.executeJob(controller, (name.away.bot.api.ServerAPI.JobRequest)request,
+            com.google.protobuf.RpcUtil.<name.away.bot.api.ServerAPI.JobResponse>specializeCallback(
+              done));
+          return;
         default:
           throw new java.lang.AssertionError("Can't get here.");
       }
@@ -5211,6 +5758,8 @@ public final class ServerAPI {
           return name.away.bot.api.ServerAPI.TackJobRequest.getDefaultInstance();
         case 4:
           return name.away.bot.api.ServerAPI.JobCompletedRequest.getDefaultInstance();
+        case 5:
+          return name.away.bot.api.ServerAPI.JobRequest.getDefaultInstance();
         default:
           throw new java.lang.AssertionError("Can't get here.");
       }
@@ -5235,6 +5784,8 @@ public final class ServerAPI {
           return name.away.bot.api.ServerAPI.SuccessResponse.getDefaultInstance();
         case 4:
           return name.away.bot.api.ServerAPI.SuccessResponse.getDefaultInstance();
+        case 5:
+          return name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance();
         default:
           throw new java.lang.AssertionError("Can't get here.");
       }
@@ -5330,6 +5881,21 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.SuccessResponse.class,
             name.away.bot.api.ServerAPI.SuccessResponse.getDefaultInstance()));
       }
+
+      public  void executeJob(
+          com.google.protobuf.RpcController controller,
+          name.away.bot.api.ServerAPI.JobRequest request,
+          com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobResponse> done) {
+        channel.callMethod(
+          getDescriptor().getMethods().get(5),
+          controller,
+          request,
+          name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance(),
+          com.google.protobuf.RpcUtil.generalizeCallback(
+            done,
+            name.away.bot.api.ServerAPI.JobResponse.class,
+            name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance()));
+      }
     }
 
     public static BlockingInterface newBlockingStub(
@@ -5361,6 +5927,11 @@ public final class ServerAPI {
       public name.away.bot.api.ServerAPI.SuccessResponse jobCompleted(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.JobCompletedRequest request)
+          throws com.google.protobuf.ServiceException;
+
+      public name.away.bot.api.ServerAPI.JobResponse executeJob(
+          com.google.protobuf.RpcController controller,
+          name.away.bot.api.ServerAPI.JobRequest request)
           throws com.google.protobuf.ServiceException;
     }
 
@@ -5430,6 +6001,18 @@ public final class ServerAPI {
           name.away.bot.api.ServerAPI.SuccessResponse.getDefaultInstance());
       }
 
+
+      public name.away.bot.api.ServerAPI.JobResponse executeJob(
+          com.google.protobuf.RpcController controller,
+          name.away.bot.api.ServerAPI.JobRequest request)
+          throws com.google.protobuf.ServiceException {
+        return (name.away.bot.api.ServerAPI.JobResponse) channel.callBlockingMethod(
+          getDescriptor().getMethods().get(5),
+          controller,
+          request,
+          name.away.bot.api.ServerAPI.JobResponse.getDefaultInstance());
+      }
+
     }
 
     // @@protoc_insertion_point(class_scope:name.away.bot.api.ServerAPIService)
@@ -5466,15 +6049,20 @@ public final class ServerAPI {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_name_away_bot_api_TackJobRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_name_away_bot_api_TackJobRequest_Jobs_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_name_away_bot_api_TackJobRequest_Jobs_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_name_away_bot_api_JobCompletedRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_name_away_bot_api_JobCompletedRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_name_away_bot_api_JobRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_name_away_bot_api_JobRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_name_away_bot_api_JobResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_name_away_bot_api_JobResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5488,26 +6076,28 @@ public final class ServerAPI {
       "equestId\022\n\n\002id\030\001 \002(\t\"1\n\017SuccessResponse\022" +
       "\017\n\007success\030\001 \002(\010\022\r\n\005error\030\002 \001(\005\".\n\017Regis" +
       "terRequest\022\n\n\002id\030\001 \002(\t\022\017\n\007max_mpc\030\002 \002(\005\"" +
-      "x\n\017GetJobsResponse\0225\n\004jobs\030\001 \003(\n2\'.name." +
-      "away.bot.api.GetJobsResponse.Jobs\032.\n\004Job" +
-      "s\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\014\n\004args\030\003 \003(" +
-      "\t\"i\n\016TackJobRequest\0224\n\004jobs\030\001 \003(\n2&.name" +
-      ".away.bot.api.TackJobRequest.Jobs\032!\n\004Job" +
-      "s\022\n\n\002id\030\001 \002(\t\022\r\n\005jobId\030\002 \002(\003\"@\n\023JobCompl",
-      "etedRequest\022\n\n\002id\030\001 \002(\t\022\r\n\005jobId\030\002 \002(\003\022\016" +
-      "\n\006result\030\003 \001(\0142\262\003\n\020ServerAPIService\022R\n\010R" +
-      "egister\022\".name.away.bot.api.RegisterRequ" +
-      "est\032\".name.away.bot.api.SuccessResponse\022" +
-      "N\n\nUnRegister\022\034.name.away.bot.api.Reques" +
-      "tId\032\".name.away.bot.api.SuccessResponse\022" +
-      "K\n\007GetJobs\022\034.name.away.bot.api.RequestId" +
-      "\032\".name.away.bot.api.GetJobsResponse\022Q\n\010" +
-      "TakeJobs\022!.name.away.bot.api.TackJobRequ" +
-      "est\032\".name.away.bot.api.SuccessResponse\022",
-      "Z\n\014JobCompleted\022&.name.away.bot.api.JobC" +
-      "ompletedRequest\032\".name.away.bot.api.Succ" +
-      "essResponseB!\n\021name.away.bot.apiB\tServer" +
-      "API\210\001\001"
+      "\206\001\n\017GetJobsResponse\0225\n\004jobs\030\001 \003(\n2\'.name" +
+      ".away.bot.api.GetJobsResponse.Jobs\032<\n\004Jo" +
+      "bs\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\014\n\004args\030\003 \003" +
+      "(\t\022\014\n\004guid\030\004 \001(\t\"+\n\016TackJobRequest\022\n\n\002id" +
+      "\030\001 \002(\t\022\r\n\005jobId\030\002 \002(\003\"@\n\023JobCompletedReq" +
+      "uest\022\n\n\002id\030\001 \002(\t\022\r\n\005jobId\030\002 \002(\003\022\016\n\006resul",
+      "t\030\003 \001(\014\"(\n\nJobRequest\022\014\n\004name\030\001 \002(\t\022\014\n\004a" +
+      "rgs\030\002 \003(\t\"\035\n\013JobResponse\022\016\n\006result\030\003 \002(\014" +
+      "2\377\003\n\020ServerAPIService\022R\n\010Register\022\".name" +
+      ".away.bot.api.RegisterRequest\032\".name.awa" +
+      "y.bot.api.SuccessResponse\022N\n\nUnRegister\022" +
+      "\034.name.away.bot.api.RequestId\032\".name.awa" +
+      "y.bot.api.SuccessResponse\022K\n\007GetJobs\022\034.n" +
+      "ame.away.bot.api.RequestId\032\".name.away.b" +
+      "ot.api.GetJobsResponse\022Q\n\010TakeJobs\022!.nam" +
+      "e.away.bot.api.TackJobRequest\032\".name.awa",
+      "y.bot.api.SuccessResponse\022Z\n\014JobComplete" +
+      "d\022&.name.away.bot.api.JobCompletedReques" +
+      "t\032\".name.away.bot.api.SuccessResponse\022K\n" +
+      "\nExecuteJob\022\035.name.away.bot.api.JobReque" +
+      "st\032\036.name.away.bot.api.JobResponseB!\n\021na" +
+      "me.away.bot.apiB\tServerAPI\210\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -5543,18 +6133,12 @@ public final class ServerAPI {
           internal_static_name_away_bot_api_GetJobsResponse_Jobs_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_GetJobsResponse_Jobs_descriptor,
-              new java.lang.String[] { "Id", "Name", "Args", });
+              new java.lang.String[] { "Id", "Name", "Args", "Guid", });
           internal_static_name_away_bot_api_TackJobRequest_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_name_away_bot_api_TackJobRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_TackJobRequest_descriptor,
-              new java.lang.String[] { "Jobs", });
-          internal_static_name_away_bot_api_TackJobRequest_Jobs_descriptor =
-            internal_static_name_away_bot_api_TackJobRequest_descriptor.getNestedTypes().get(0);
-          internal_static_name_away_bot_api_TackJobRequest_Jobs_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_name_away_bot_api_TackJobRequest_Jobs_descriptor,
               new java.lang.String[] { "Id", "JobId", });
           internal_static_name_away_bot_api_JobCompletedRequest_descriptor =
             getDescriptor().getMessageTypes().get(5);
@@ -5562,6 +6146,18 @@ public final class ServerAPI {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_JobCompletedRequest_descriptor,
               new java.lang.String[] { "Id", "JobId", "Result", });
+          internal_static_name_away_bot_api_JobRequest_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_name_away_bot_api_JobRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_name_away_bot_api_JobRequest_descriptor,
+              new java.lang.String[] { "Name", "Args", });
+          internal_static_name_away_bot_api_JobResponse_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_name_away_bot_api_JobResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_name_away_bot_api_JobResponse_descriptor,
+              new java.lang.String[] { "Result", });
           return null;
         }
       };

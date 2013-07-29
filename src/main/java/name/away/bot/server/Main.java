@@ -14,6 +14,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import name.away.bot.api.ServerAPI;
 import org.apache.commons.cli.*;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.slf4j.Logger;
@@ -36,7 +37,7 @@ public class Main {
     private static String host = "localhost";
     private static int port = 8080;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         /**
          * Configure log system
          */
@@ -66,6 +67,10 @@ public class Main {
             port = Integer.parseInt(cmd.getOptionValue("p", String.valueOf(port)));
         }
         /**
+         * Config store
+         */
+        final Store store = new Store();
+        /**
          * Start RPC Protobuf Server
          */
         PeerInfo serverInfo = new PeerInfo(host, port);
@@ -87,24 +92,52 @@ public class Main {
             }
 
             @Override
-            public void connectionOpened(RpcClientChannel clientChannel) {
+            public void connectionOpened(final RpcClientChannel clientChannel) {
                 log.info("connectionOpened " + clientChannel);
+                store.registerBot(clientChannel, clientChannel.getPeerInfo().getPid(), 10);
+                Thread th = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            log.error("Can not sleep thread", e);
+                        }
+                        clientChannel.sendOobMessage(ServerAPI.GetJobsResponse.Jobs.newBuilder().setGuid(clientChannel.getPeerInfo().getPid()).build());
+                    }
+                });
+                th.run();
             }
 
             @Override
             public void connectionLost(RpcClientChannel clientChannel) {
                 log.info("connectionLost " + clientChannel);
+                store.removeBot(clientChannel.getPeerInfo().getPid());
             }
 
             @Override
-            public void connectionChanged(RpcClientChannel clientChannel) {
+            public void connectionChanged(final RpcClientChannel clientChannel) {
                 log.info("connectionChanged " + clientChannel);
+                store.removeBot(clientChannel.getPeerInfo().getPid());
+                store.registerBot(clientChannel, clientChannel.getPeerInfo().getPid(), 10);
+                Thread th = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            log.error("Can not sleep thread", e);
+                        }
+                        clientChannel.sendOobMessage(ServerAPI.GetJobsResponse.Jobs.newBuilder().setGuid(clientChannel.getPeerInfo().getPid()).build());
+                    }
+                });
+                th.run();
             }
         };
         rpcEventNotifier.setEventListener(listener);
         serverFactory.registerConnectionEventListener(rpcEventNotifier);
 
-        serverFactory.getRpcServiceRegistry().registerService(new ServerAPIImpl());
+        serverFactory.getRpcServiceRegistry().registerService(new ServerAPIImpl(store, serverFactory.getRpcClientRegistry()));
 
         ServerBootstrap bootstrap = new ServerBootstrap();
         EventLoopGroup boss = new NioEventLoopGroup(2,new RenamingThreadFactoryProxy("boss", Executors.defaultThreadFactory()));
@@ -132,7 +165,11 @@ public class Main {
             List<RpcClientChannel> clients = serverFactory.getRpcClientRegistry().getAllClients();
             log.info("Number of clients="+ clients.size());
 
-            Thread.sleep(5000);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                log.error("Can not sleep main thread", e);
+            }
         }
     }
 }
