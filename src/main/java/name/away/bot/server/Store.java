@@ -1,5 +1,6 @@
 package name.away.bot.server;
 
+import com.google.protobuf.ByteString;
 import com.googlecode.protobuf.pro.duplex.RpcClientChannel;
 import com.sun.xml.internal.ws.util.ByteArrayBuffer;
 import name.away.bot.api.ServerAPI;
@@ -22,19 +23,20 @@ public class Store {
             this.completed = completed;
         }
     }
-
     public class BotInfo {
         private RpcClientChannel chanel;
         private String id;
-        private int maxCmp;
+        private String name;
+        private int maxRunAtTime;
         private int nowWorked = 0;
         private boolean canExecute = false;
 
-        public BotInfo(RpcClientChannel chanel, String id, int maxCmp){
+        public BotInfo(RpcClientChannel chanel, String id, String name, int maxRunAtTime){
 
             this.chanel = chanel;
             this.id = id;
-            this.maxCmp = maxCmp;
+            this.name = name;
+            this.maxRunAtTime = maxRunAtTime;
         }
 
         public RpcClientChannel getChanel() {
@@ -49,14 +51,6 @@ public class Store {
             nowWorked += delta;
         }
 
-        public int getMaxCmp() {
-            return maxCmp;
-        }
-
-        public void setMaxCmp(int maxCmp) {
-            this.maxCmp = maxCmp;
-        }
-
         public int getNowWorked() {
             return nowWorked;
         }
@@ -65,12 +59,52 @@ public class Store {
             return canExecute;
         }
 
+        public void setName(String name){
+            this.name = name;
+        }
+
+        public String getName(){
+            return this.name;
+        }
+
         public void setCanExecute(boolean canExecute) {
             this.canExecute = canExecute;
         }
+
+        public int getMaxRunAtTime() {
+            return maxRunAtTime;
+        }
+
+        public void setMaxRunAtTime(int maxRunAtTime) {
+            this.maxRunAtTime = maxRunAtTime;
+        }
+
+        @Override
+        public String toString(){
+            return name;
+        }
     }
 
-    LinkedHashMap<Long, ServerAPI.GetJobsResponse.Jobs> jobs = new LinkedHashMap<Long, ServerAPI.GetJobsResponse.Jobs>();
+    public class JobContainer {
+
+        private ServerAPI.JobMessage job;
+        private Object completeWaiter = new Object();
+
+        public JobContainer(ServerAPI.JobMessage job){
+
+            this.job = job;
+        }
+
+        public ServerAPI.JobMessage getJob() {
+            return job;
+        }
+
+        public Object getCompleteWaiter() {
+            return completeWaiter;
+        }
+    }
+
+    LinkedHashMap<Long, JobContainer> jobs = new LinkedHashMap<Long, JobContainer>();
     LinkedHashMap<Long, TackedJobInfo> tackedJobs = new LinkedHashMap<Long, TackedJobInfo>();
     LinkedHashMap<Long, ByteArrayBuffer> completedJobs = new LinkedHashMap<Long, ByteArrayBuffer>();
     LinkedList<BotInfo> bots = new LinkedList<BotInfo>();
@@ -79,8 +113,8 @@ public class Store {
 
     }
 
-    public synchronized void registerBot(RpcClientChannel chanel, String id, int maxCmp){
-        bots.add(new BotInfo(chanel, id, maxCmp));
+    public synchronized void registerBot(RpcClientChannel chanel, String id, int maxCmp, String name){
+        bots.add(new BotInfo(chanel, id, name, maxCmp));
     }
 
     public synchronized BotInfo findBot(String id){
@@ -100,14 +134,14 @@ public class Store {
         return false;
     }
 
-    public synchronized long addJob(String name, String[] args){
+    public synchronized long addJob(String name, ByteString[] args){
         long Id = jobs.size() + 1;
-        ServerAPI.GetJobsResponse.Jobs job = ServerAPI.GetJobsResponse.Jobs
+        ServerAPI.JobMessage job = ServerAPI.JobMessage
                 .newBuilder()
                 .setId(Id)
                 .setName(name)
                 .addAllArgs(Arrays.asList(args)).build();
-        jobs.put(Id, job);
+        jobs.put(Id, new JobContainer(job));
         return Id;
     }
 
@@ -120,16 +154,18 @@ public class Store {
         return true;
     }
 
-    public synchronized List<ServerAPI.GetJobsResponse.Jobs> getFreeJobs(){
-        LinkedList<ServerAPI.GetJobsResponse.Jobs> result = new LinkedList<ServerAPI.GetJobsResponse.Jobs>();
+    public synchronized List<ServerAPI.JobMessage> getFreeJobs(String workerId){
+        LinkedList<ServerAPI.JobMessage> result = new LinkedList<ServerAPI.JobMessage>();
         for(long key : jobs.keySet()){
+            ServerAPI.JobMessage job = jobs.get(key).getJob();
             if (tackedJobs.get(key) != null) continue;
-            result.add(jobs.get(key));
+            if (!workerId.isEmpty() && job.hasWorkerId() && !job.getWorkerId().equals(workerId)) continue;
+            result.add(job);
         }
         return result;
     }
 
-    public synchronized ServerAPI.GetJobsResponse.Jobs getJob(long jobId){
+    public synchronized JobContainer getJob(long jobId){
         if (tackedJobs.get(jobId) != null) return null;
         return jobs.get(jobId);
     }
@@ -140,6 +176,10 @@ public class Store {
         info.completed = true;
         completedJobs.put(jobId, data);
         info.worker.incNowWorked(-1);
+
+        Object completeWaiter = getJob(jobId).getCompleteWaiter();
+        completeWaiter.notifyAll();
+
         return true;
     }
 

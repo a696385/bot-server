@@ -15,14 +15,14 @@ import org.slf4j.LoggerFactory;
  */
 public class Worker {
 
-    private ServerAPI.GetJobsResponse.Jobs job;
+    private ServerAPI.JobMessage job;
     private RpcClientChannel channel;
     private ServerAPI.ServerAPIService.Interface server;
     private ClientRpcController controller;
     private Logger log = LoggerFactory.getLogger(Worker.class);
     private String currentId;
 
-    public Worker(ServerAPI.GetJobsResponse.Jobs job, RpcClientChannel channel, ServerAPI.ServerAPIService.Interface server, ClientRpcController controller, String currentId){
+    public Worker(ServerAPI.JobMessage job, RpcClientChannel channel, ServerAPI.ServerAPIService.Interface server, ClientRpcController controller, String currentId){
 
         this.job = job;
         this.channel = channel;
@@ -33,18 +33,18 @@ public class Worker {
 
     public void run(){
         log.info("Take job #{} ({})", job.getId(), job.getName());
-        server.takeJobs(controller, ServerAPI.TackJobRequest.newBuilder().setId(currentId).setJobId(job.getId()).build(), new RpcCallback<ServerAPI.SuccessResponse>() {
+        server.takeJobs(controller, ServerAPI.TakeJobMessage.newBuilder().setWorkerId(currentId).setJobId(job.getId()).build(), new RpcCallback<ServerAPI.SuccessResponseMessage>() {
             @Override
-            public void run(ServerAPI.SuccessResponse successResponse) {
+            public void run(ServerAPI.SuccessResponseMessage successResponse) {
                 if (!successResponse.getSuccess()) {
                     log.error("Can not take job {}", job.getId());
                     return;
                 }
                 byte[] result = execute();
                 log.info("Complete job #{}", job.getId());
-                server.jobCompleted(controller, ServerAPI.JobCompletedRequest.newBuilder().setId(currentId).setJobId(job.getId()).setResult(ByteString.copyFrom(result)).build(), new RpcCallback<ServerAPI.SuccessResponse>() {
+                server.jobCompleted(controller, ServerAPI.CompleteJobMessage.newBuilder().setJobId(job.getId()).setResult(ByteString.copyFrom(result)).build(), new RpcCallback<ServerAPI.SuccessResponseMessage>() {
                     @Override
-                    public void run(ServerAPI.SuccessResponse successResponse) {
+                    public void run(ServerAPI.SuccessResponseMessage successResponse) {
                         if (!successResponse.getSuccess()) {
                             log.error("Can complete job #{}", job.getId());
                         } else {

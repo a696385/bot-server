@@ -73,97 +73,17 @@ public class Main {
         /**
          * Start RPC Protobuf Server
          */
-        PeerInfo serverInfo = new PeerInfo(host, port);
-        CategoryPerServiceLogger logger = new CategoryPerServiceLogger();
-        logger.setLogRequestProto(false);
-        logger.setLogResponseProto(false);
-
-        DuplexTcpServerPipelineFactory serverFactory = new DuplexTcpServerPipelineFactory(serverInfo);
-        RpcServerCallExecutor rpcExecutor = new ThreadPoolCallExecutor(10, 10);
-        serverFactory.setRpcServerCallExecutor(rpcExecutor);
-        serverFactory.setLogger(logger);
-
-        RpcConnectionEventNotifier rpcEventNotifier = new RpcConnectionEventNotifier();
-        RpcConnectionEventListener listener = new RpcConnectionEventListener() {
-
-            @Override
-            public void connectionReestablished(RpcClientChannel clientChannel) {
-                log.info("connectionReestablished " + clientChannel);
-            }
-
-            @Override
-            public void connectionOpened(final RpcClientChannel clientChannel) {
-                log.info("connectionOpened " + clientChannel);
-                store.registerBot(clientChannel, clientChannel.getPeerInfo().getPid(), 10);
-                Thread th = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            log.error("Can not sleep thread", e);
-                        }
-                        clientChannel.sendOobMessage(ServerAPI.GetJobsResponse.Jobs.newBuilder().setGuid(clientChannel.getPeerInfo().getPid()).build());
-                    }
-                });
-                th.run();
-            }
-
-            @Override
-            public void connectionLost(RpcClientChannel clientChannel) {
-                log.info("connectionLost " + clientChannel);
-                store.removeBot(clientChannel.getPeerInfo().getPid());
-            }
-
-            @Override
-            public void connectionChanged(final RpcClientChannel clientChannel) {
-                log.info("connectionChanged " + clientChannel);
-                store.removeBot(clientChannel.getPeerInfo().getPid());
-                store.registerBot(clientChannel, clientChannel.getPeerInfo().getPid(), 10);
-                Thread th = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            log.error("Can not sleep thread", e);
-                        }
-                        clientChannel.sendOobMessage(ServerAPI.GetJobsResponse.Jobs.newBuilder().setGuid(clientChannel.getPeerInfo().getPid()).build());
-                    }
-                });
-                th.run();
-            }
-        };
-        rpcEventNotifier.setEventListener(listener);
-        serverFactory.registerConnectionEventListener(rpcEventNotifier);
-
-        serverFactory.getRpcServiceRegistry().registerService(new ServerAPIImpl(store, serverFactory.getRpcClientRegistry()));
-
-        ServerBootstrap bootstrap = new ServerBootstrap();
-        EventLoopGroup boss = new NioEventLoopGroup(2,new RenamingThreadFactoryProxy("boss", Executors.defaultThreadFactory()));
-        EventLoopGroup workers = new NioEventLoopGroup(2,new RenamingThreadFactoryProxy("worker", Executors.defaultThreadFactory()));
-        bootstrap.group(boss,workers);
-        bootstrap.channel(NioServerSocketChannel.class);
-        bootstrap.option(ChannelOption.SO_SNDBUF, 1048576);
-        bootstrap.option(ChannelOption.SO_RCVBUF, 1048576);
-        bootstrap.childOption(ChannelOption.SO_RCVBUF, 1048576);
-        bootstrap.childOption(ChannelOption.SO_SNDBUF, 1048576);
-        bootstrap.option(ChannelOption.TCP_NODELAY, true);
-        bootstrap.childHandler(serverFactory);
-        bootstrap.localAddress(serverInfo.getPort());
-
-        CleanShutdownHandler shutdownHandler = new CleanShutdownHandler();
-        shutdownHandler.addResource(bootstrap);
-        shutdownHandler.addResource(rpcExecutor);
-
+        Server server = new Server(host, port, store);
         // Bind and start to accept incoming connections.
-        bootstrap.bind();
-        log.info("Serving " + bootstrap);
+        server.run();
+        log.info("Serving {}", server);
 
+        /**
+         * Main loop
+         */
         while ( true ) {
 
-            List<RpcClientChannel> clients = serverFactory.getRpcClientRegistry().getAllClients();
-            log.info("Number of clients="+ clients.size());
+            log.info("Number of clients {}", server.getClientCount());
 
             try {
                 Thread.sleep(5000);

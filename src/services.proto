@@ -3,54 +3,58 @@ option java_generic_services = true;
 option java_outer_classname = "ServerAPI";
 option java_package = "name.away.bot.api";
 
-message RequestId{
-  required string id = 1;  
+message ClientNotification{
+    required string type = 1;
+    optional bytes data = 2;
 }
-message SuccessResponse{
+
+message RegisterWorkerMessage{
+    required string id = 1;
+    required int32 max_one_time_requests = 2;
+    required string name = 3;
+}
+
+message RemoveWorkerMessage{
+    required string id = 1;
+}
+
+message JobMessage{
+    required int64 id = 1;
+    required string name = 2;
+    repeated bytes args = 3;
+    optional string workerId = 4;
+}
+
+message JobsMessage{
+    repeated JobMessage job = 1;
+}
+
+message TakeJobMessage{
+    required string workerId = 1;
+    required int64 jobId = 2;
+}
+
+message CompleteJobMessage{
+    required int64 jobId = 2;
+    optional bytes result = 3;
+}
+
+message SuccessResponseMessage{
   required bool success = 1;
   optional int32 error = 2;
 }
-//Register
-message RegisterRequest{  
-  required string id = 1;
-  required int32 max_mpc = 2;
-}
-//Jobs
-message GetJobsResponse{
-  repeated group Jobs = 1{
-    optional int64 id = 1;
-    optional string name = 2;
-    repeated string args = 3;
-    optional string guid = 4;
-  }
-}
- //Take job
-message TackJobRequest{
-  required string id = 1;
-  required int64 jobId = 2;
-}
-//Job complete
-message JobCompletedRequest{
-  required string id = 1; 
-  required int64 jobId = 2; 
-  optional bytes result = 3;
+
+message WorkerId{
+    required string workerId = 1;
 }
 
-message JobRequest{
-    required string name = 1;
-    repeated string args = 2;
-}
-
-message JobResponse{
-    required bytes result = 3;
-}
 
 
 service ServerAPIService {
-  rpc Register (RegisterRequest) returns (SuccessResponse);
-  rpc UnRegister (RequestId) returns (SuccessResponse);
-  rpc GetJobs (RequestId) returns (GetJobsResponse);
-  rpc TakeJobs (TackJobRequest) returns (SuccessResponse);
-  rpc JobCompleted (JobCompletedRequest) returns (SuccessResponse);
-  rpc ExecuteJob (JobRequest) returns (JobResponse);
+  rpc RegisterWorker (RegisterWorkerMessage) returns (SuccessResponseMessage);
+  rpc RemoveWorker (RemoveWorkerMessage) returns (SuccessResponseMessage);
+  rpc GetJobs (WorkerId) returns (JobsMessage);
+  rpc TakeJobs (TakeJobMessage) returns (SuccessResponseMessage);
+  rpc JobCompleted (CompleteJobMessage) returns (SuccessResponseMessage);
+  rpc ExecuteJob (JobMessage) returns (CompleteJobMessage);
 }
