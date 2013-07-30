@@ -37,6 +37,7 @@ public class Client {
     private Bootstrap bootstrap;
     private ServerAPI.ServerAPIService.Interface service;
     private ClientRpcController controller;
+    private RpcClientConnectionWatchdog watchdog;
 
     public Client(String clientHost, int clientPort, String host, int port, final String name, final int maxJobsPerTime) throws IOException {
         this.clientHost = clientHost;
@@ -54,6 +55,8 @@ public class Client {
         clientFactory.setConnectResponseTimeoutMillis(10000);
         RpcServerCallExecutor rpcExecutor = new ThreadPoolCallExecutor(3, 10);
         clientFactory.setRpcServerCallExecutor(rpcExecutor);
+
+        CleanShutdownHandler shutdownHandler = new CleanShutdownHandler();
 
         // RPC payloads are uncompressed when logged - so reduce logging
         CategoryPerServiceLogger logger = new CategoryPerServiceLogger();
@@ -102,11 +105,12 @@ public class Client {
         bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,10000);
         bootstrap.option(ChannelOption.SO_SNDBUF, 1048576);
         bootstrap.option(ChannelOption.SO_RCVBUF, 1048576);
-        RpcClientConnectionWatchdog watchdog = new RpcClientConnectionWatchdog(clientFactory,bootstrap);
+
+        watchdog = new RpcClientConnectionWatchdog(clientFactory, bootstrap);
         rpcEventNotifier.addEventListener(watchdog);
         watchdog.start();
 
-        CleanShutdownHandler shutdownHandler = new CleanShutdownHandler();
+
         shutdownHandler.addResource(bootstrap);
         shutdownHandler.addResource(rpcExecutor);
 

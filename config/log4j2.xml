@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="WARN" package="name.away.bot">
+<configuration status="WARN">
     <properties>
         <property name="filename">log/error.log</property>
     </properties>
@@ -20,14 +20,11 @@
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE_ERROR"/>
         </root>
-        <root level="debug">
-            <appender-ref ref="CONSOLE"/>
-        </root>
-        <root level="info">
-            <appender-ref ref="CONSOLE"/>
-        </root>
-        <root level="trace">
-            <appender-ref ref="CONSOLE"/>
-        </root>
+        <logger name="name.away.bot.client" level="all" additivity="false">
+            <appender-ref ref="CONSOLE" level="info"/>
+        </logger>
+        <logger name="name.away.bot.server" level="all" additivity="false">
+            <appender-ref ref="CONSOLE" level="info"/>
+        </logger>
     </loggers>
 </configuration>

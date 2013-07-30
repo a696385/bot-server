@@ -141,6 +141,11 @@
             <artifactId>cli</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3-beta2</version>
+        </dependency>
     </dependencies>
     
 </project>

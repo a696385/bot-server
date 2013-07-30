@@ -10,86 +10,192 @@ public final class ServerAPI {
   }
   public interface ClientNotificationOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string type = 1;
+    /**
+     * <code>required string type = 1;</code>
+     */
     boolean hasType();
-    String getType();
-    
+    /**
+     * <code>required string type = 1;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>required string type = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
     // optional bytes data = 2;
+    /**
+     * <code>optional bytes data = 2;</code>
+     */
     boolean hasData();
+    /**
+     * <code>optional bytes data = 2;</code>
+     */
     com.google.protobuf.ByteString getData();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.ClientNotification}
+   */
   public static final class ClientNotification extends
       com.google.protobuf.GeneratedMessage
       implements ClientNotificationOrBuilder {
     // Use ClientNotification.newBuilder() to construct.
-    private ClientNotification(Builder builder) {
+    private ClientNotification(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private ClientNotification(boolean noInit) {}
-    
+    private ClientNotification(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final ClientNotification defaultInstance;
     public static ClientNotification getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public ClientNotification getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ClientNotification(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              type_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              data_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.ClientNotification.class, name.away.bot.api.ServerAPI.ClientNotification.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<ClientNotification> PARSER =
+        new com.google.protobuf.AbstractParser<ClientNotification>() {
+      public ClientNotification parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ClientNotification(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClientNotification> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
     private java.lang.Object type_;
+    /**
+     * <code>required string type = 1;</code>
+     */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getType() {
+    /**
+     * <code>required string type = 1;</code>
+     */
+    public java.lang.String getType() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           type_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTypeBytes() {
+    /**
+     * <code>required string type = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         type_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // optional bytes data = 2;
     public static final int DATA_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString data_;
+    /**
+     * <code>optional bytes data = 2;</code>
+     */
     public boolean hasData() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>optional bytes data = 2;</code>
+     */
     public com.google.protobuf.ByteString getData() {
       return data_;
     }
-    
+
     private void initFields() {
       type_ = "";
       data_ = com.google.protobuf.ByteString.EMPTY;
@@ -98,7 +204,7 @@ public final class ServerAPI {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasType()) {
         memoizedIsInitialized = 0;
         return false;
@@ -106,7 +212,7 @@ public final class ServerAPI {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -118,12 +224,12 @@ public final class ServerAPI {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -137,94 +243,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.ClientNotification parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.ClientNotification prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.ClientNotification}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.ClientNotificationOrBuilder {
@@ -232,18 +327,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.ClientNotification.class, name.away.bot.api.ServerAPI.ClientNotification.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.ClientNotification.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -254,7 +352,7 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -263,20 +361,20 @@ public final class ServerAPI {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.ClientNotification.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_ClientNotification_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.ClientNotification getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.ClientNotification.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.ClientNotification build() {
         name.away.bot.api.ServerAPI.ClientNotification result = buildPartial();
         if (!result.isInitialized()) {
@@ -284,17 +382,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.ClientNotification buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.ClientNotification result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.ClientNotification buildPartial() {
         name.away.bot.api.ServerAPI.ClientNotification result = new name.away.bot.api.ServerAPI.ClientNotification(this);
         int from_bitField0_ = bitField0_;
@@ -311,7 +399,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.ClientNotification) {
           return mergeFrom((name.away.bot.api.ServerAPI.ClientNotification)other);
@@ -320,11 +408,13 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.ClientNotification other) {
         if (other == name.away.bot.api.ServerAPI.ClientNotification.getDefaultInstance()) return this;
         if (other.hasType()) {
-          setType(other.getType());
+          bitField0_ |= 0x00000001;
+          type_ = other.type_;
+          onChanged();
         }
         if (other.hasData()) {
           setData(other.getData());
@@ -332,7 +422,7 @@ public final class ServerAPI {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasType()) {
           
@@ -340,62 +430,69 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              type_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              data_ = input.readBytes();
-              break;
-            }
+        name.away.bot.api.ServerAPI.ClientNotification parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.ClientNotification) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string type = 1;
       private java.lang.Object type_ = "";
+      /**
+       * <code>required string type = 1;</code>
+       */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getType() {
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public java.lang.String getType() {
         java.lang.Object ref = type_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           type_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setType(String value) {
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -404,26 +501,46 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string type = 1;</code>
+       */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
         type_ = getDefaultInstance().getType();
         onChanged();
         return this;
       }
-      void setType(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
+        return this;
       }
-      
+
       // optional bytes data = 2;
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes data = 2;</code>
+       */
       public boolean hasData() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>optional bytes data = 2;</code>
+       */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
+      /**
+       * <code>optional bytes data = 2;</code>
+       */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -433,446 +550,118 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional bytes data = 2;</code>
+       */
       public Builder clearData() {
         bitField0_ = (bitField0_ & ~0x00000002);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.ClientNotification)
     }
-    
+
     static {
       defaultInstance = new ClientNotification(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.ClientNotification)
   }
-  
+
   public interface RegisterWorkerMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string id = 1;
+    /**
+     * <code>required string id = 1;</code>
+     */
     boolean hasId();
-    String getId();
-    
+    /**
+     * <code>required string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>required string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
     // required int32 max_one_time_requests = 2;
+    /**
+     * <code>required int32 max_one_time_requests = 2;</code>
+     */
     boolean hasMaxOneTimeRequests();
+    /**
+     * <code>required int32 max_one_time_requests = 2;</code>
+     */
     int getMaxOneTimeRequests();
-    
+
     // required string name = 3;
+    /**
+     * <code>required string name = 3;</code>
+     */
     boolean hasName();
-    String getName();
+    /**
+     * <code>required string name = 3;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.RegisterWorkerMessage}
+   */
   public static final class RegisterWorkerMessage extends
       com.google.protobuf.GeneratedMessage
       implements RegisterWorkerMessageOrBuilder {
     // Use RegisterWorkerMessage.newBuilder() to construct.
-    private RegisterWorkerMessage(Builder builder) {
+    private RegisterWorkerMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private RegisterWorkerMessage(boolean noInit) {}
-    
+    private RegisterWorkerMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final RegisterWorkerMessage defaultInstance;
     public static RegisterWorkerMessage getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public RegisterWorkerMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor;
-    }
-    
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // required string id = 1;
-    public static final int ID_FIELD_NUMBER = 1;
-    private java.lang.Object id_;
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          id_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // required int32 max_one_time_requests = 2;
-    public static final int MAX_ONE_TIME_REQUESTS_FIELD_NUMBER = 2;
-    private int maxOneTimeRequests_;
-    public boolean hasMaxOneTimeRequests() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public int getMaxOneTimeRequests() {
-      return maxOneTimeRequests_;
-    }
-    
-    // required string name = 3;
-    public static final int NAME_FIELD_NUMBER = 3;
-    private java.lang.Object name_;
-    public boolean hasName() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    public String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    private void initFields() {
-      id_ = "";
-      maxOneTimeRequests_ = 0;
-      name_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasMaxOneTimeRequests()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getIdBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, maxOneTimeRequests_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getNameBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getIdBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, maxOneTimeRequests_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getNameBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
     }
-    
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
+    private RegisterWorkerMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(name.away.bot.api.ServerAPI.RegisterWorkerMessage prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements name.away.bot.api.ServerAPI.RegisterWorkerMessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_fieldAccessorTable;
-      }
-      
-      // Construct using name.away.bot.api.ServerAPI.RegisterWorkerMessage.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        id_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        maxOneTimeRequests_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.RegisterWorkerMessage.getDescriptor();
-      }
-      
-      public name.away.bot.api.ServerAPI.RegisterWorkerMessage getDefaultInstanceForType() {
-        return name.away.bot.api.ServerAPI.RegisterWorkerMessage.getDefaultInstance();
-      }
-      
-      public name.away.bot.api.ServerAPI.RegisterWorkerMessage build() {
-        name.away.bot.api.ServerAPI.RegisterWorkerMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private name.away.bot.api.ServerAPI.RegisterWorkerMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.RegisterWorkerMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public name.away.bot.api.ServerAPI.RegisterWorkerMessage buildPartial() {
-        name.away.bot.api.ServerAPI.RegisterWorkerMessage result = new name.away.bot.api.ServerAPI.RegisterWorkerMessage(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.maxOneTimeRequests_ = maxOneTimeRequests_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.name_ = name_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof name.away.bot.api.ServerAPI.RegisterWorkerMessage) {
-          return mergeFrom((name.away.bot.api.ServerAPI.RegisterWorkerMessage)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(name.away.bot.api.ServerAPI.RegisterWorkerMessage other) {
-        if (other == name.away.bot.api.ServerAPI.RegisterWorkerMessage.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          setId(other.getId());
-        }
-        if (other.hasMaxOneTimeRequests()) {
-          setMaxOneTimeRequests(other.getMaxOneTimeRequests());
-        }
-        if (other.hasName()) {
-          setName(other.getName());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        if (!hasId()) {
-          
-          return false;
-        }
-        if (!hasMaxOneTimeRequests()) {
-          
-          return false;
-        }
-        if (!hasName()) {
-          
-          return false;
-        }
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
+              done = true;
+              break;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
               }
               break;
             }
@@ -893,328 +682,308 @@ public final class ServerAPI {
             }
           }
         }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
       }
-      
-      private int bitField0_;
-      
-      // required string id = 1;
-      private java.lang.Object id_ = "";
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      void setId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        id_ = value;
-        onChanged();
-      }
-      
-      // required int32 max_one_time_requests = 2;
-      private int maxOneTimeRequests_ ;
-      public boolean hasMaxOneTimeRequests() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public int getMaxOneTimeRequests() {
-        return maxOneTimeRequests_;
-      }
-      public Builder setMaxOneTimeRequests(int value) {
-        bitField0_ |= 0x00000002;
-        maxOneTimeRequests_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearMaxOneTimeRequests() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        maxOneTimeRequests_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // required string name = 3;
-      private java.lang.Object name_ = "";
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      public String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setName(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      void setName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
-        name_ = value;
-        onChanged();
-      }
-      
-      // @@protoc_insertion_point(builder_scope:name.away.bot.api.RegisterWorkerMessage)
     }
-    
-    static {
-      defaultInstance = new RegisterWorkerMessage(true);
-      defaultInstance.initFields();
-    }
-    
-    // @@protoc_insertion_point(class_scope:name.away.bot.api.RegisterWorkerMessage)
-  }
-  
-  public interface RemoveWorkerMessageOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // required string id = 1;
-    boolean hasId();
-    String getId();
-  }
-  public static final class RemoveWorkerMessage extends
-      com.google.protobuf.GeneratedMessage
-      implements RemoveWorkerMessageOrBuilder {
-    // Use RemoveWorkerMessage.newBuilder() to construct.
-    private RemoveWorkerMessage(Builder builder) {
-      super(builder);
-    }
-    private RemoveWorkerMessage(boolean noInit) {}
-    
-    private static final RemoveWorkerMessage defaultInstance;
-    public static RemoveWorkerMessage getDefaultInstance() {
-      return defaultInstance;
-    }
-    
-    public RemoveWorkerMessage getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.RegisterWorkerMessage.class, name.away.bot.api.ServerAPI.RegisterWorkerMessage.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<RegisterWorkerMessage> PARSER =
+        new com.google.protobuf.AbstractParser<RegisterWorkerMessage>() {
+      public RegisterWorkerMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegisterWorkerMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegisterWorkerMessage> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private java.lang.Object id_;
+    /**
+     * <code>required string id = 1;</code>
+     */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getId() {
+    /**
+     * <code>required string id = 1;</code>
+     */
+    public java.lang.String getId() {
       java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           id_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getIdBytes() {
+    /**
+     * <code>required string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
       java.lang.Object ref = id_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         id_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
+    // required int32 max_one_time_requests = 2;
+    public static final int MAX_ONE_TIME_REQUESTS_FIELD_NUMBER = 2;
+    private int maxOneTimeRequests_;
+    /**
+     * <code>required int32 max_one_time_requests = 2;</code>
+     */
+    public boolean hasMaxOneTimeRequests() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 max_one_time_requests = 2;</code>
+     */
+    public int getMaxOneTimeRequests() {
+      return maxOneTimeRequests_;
+    }
+
+    // required string name = 3;
+    public static final int NAME_FIELD_NUMBER = 3;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 3;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string name = 3;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       id_ = "";
+      maxOneTimeRequests_ = 0;
+      name_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMaxOneTimeRequests()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
       }
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getIdBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, maxOneTimeRequests_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getNameBytes());
+      }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getIdBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, maxOneTimeRequests_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getNameBytes());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(byte[] data)
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(java.io.InputStream input)
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseDelimitedFrom(java.io.InputStream input)
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseDelimitedFrom(
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
-    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+    public static name.away.bot.api.ServerAPI.RegisterWorkerMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(name.away.bot.api.ServerAPI.RemoveWorkerMessage prototype) {
+    public static Builder newBuilder(name.away.bot.api.ServerAPI.RegisterWorkerMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.RegisterWorkerMessage}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements name.away.bot.api.ServerAPI.RemoveWorkerMessageOrBuilder {
+       implements name.away.bot.api.ServerAPI.RegisterWorkerMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.RegisterWorkerMessage.class, name.away.bot.api.ServerAPI.RegisterWorkerMessage.Builder.class);
       }
-      
-      // Construct using name.away.bot.api.ServerAPI.RemoveWorkerMessage.newBuilder()
+
+      // Construct using name.away.bot.api.ServerAPI.RegisterWorkerMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1225,27 +994,641 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        maxOneTimeRequests_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor;
+      }
+
+      public name.away.bot.api.ServerAPI.RegisterWorkerMessage getDefaultInstanceForType() {
+        return name.away.bot.api.ServerAPI.RegisterWorkerMessage.getDefaultInstance();
+      }
+
+      public name.away.bot.api.ServerAPI.RegisterWorkerMessage build() {
+        name.away.bot.api.ServerAPI.RegisterWorkerMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public name.away.bot.api.ServerAPI.RegisterWorkerMessage buildPartial() {
+        name.away.bot.api.ServerAPI.RegisterWorkerMessage result = new name.away.bot.api.ServerAPI.RegisterWorkerMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.maxOneTimeRequests_ = maxOneTimeRequests_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.name_ = name_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof name.away.bot.api.ServerAPI.RegisterWorkerMessage) {
+          return mergeFrom((name.away.bot.api.ServerAPI.RegisterWorkerMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(name.away.bot.api.ServerAPI.RegisterWorkerMessage other) {
+        if (other == name.away.bot.api.ServerAPI.RegisterWorkerMessage.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          bitField0_ |= 0x00000001;
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.hasMaxOneTimeRequests()) {
+          setMaxOneTimeRequests(other.getMaxOneTimeRequests());
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000004;
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
+        if (!hasMaxOneTimeRequests()) {
+          
+          return false;
+        }
+        if (!hasName()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        name.away.bot.api.ServerAPI.RegisterWorkerMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.RegisterWorkerMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string id = 1;
+      private java.lang.Object id_ = "";
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required int32 max_one_time_requests = 2;
+      private int maxOneTimeRequests_ ;
+      /**
+       * <code>required int32 max_one_time_requests = 2;</code>
+       */
+      public boolean hasMaxOneTimeRequests() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 max_one_time_requests = 2;</code>
+       */
+      public int getMaxOneTimeRequests() {
+        return maxOneTimeRequests_;
+      }
+      /**
+       * <code>required int32 max_one_time_requests = 2;</code>
+       */
+      public Builder setMaxOneTimeRequests(int value) {
+        bitField0_ |= 0x00000002;
+        maxOneTimeRequests_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 max_one_time_requests = 2;</code>
+       */
+      public Builder clearMaxOneTimeRequests() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        maxOneTimeRequests_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required string name = 3;
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 3;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string name = 3;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 3;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 3;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 3;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:name.away.bot.api.RegisterWorkerMessage)
+    }
+
+    static {
+      defaultInstance = new RegisterWorkerMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:name.away.bot.api.RegisterWorkerMessage)
+  }
+
+  public interface RemoveWorkerMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string id = 1;
+    /**
+     * <code>required string id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>required string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code name.away.bot.api.RemoveWorkerMessage}
+   */
+  public static final class RemoveWorkerMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements RemoveWorkerMessageOrBuilder {
+    // Use RemoveWorkerMessage.newBuilder() to construct.
+    private RemoveWorkerMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RemoveWorkerMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RemoveWorkerMessage defaultInstance;
+    public static RemoveWorkerMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RemoveWorkerMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoveWorkerMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.RemoveWorkerMessage.class, name.away.bot.api.ServerAPI.RemoveWorkerMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RemoveWorkerMessage> PARSER =
+        new com.google.protobuf.AbstractParser<RemoveWorkerMessage>() {
+      public RemoveWorkerMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoveWorkerMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoveWorkerMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.Object id_;
+    /**
+     * <code>required string id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          id_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      id_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getIdBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getIdBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static name.away.bot.api.ServerAPI.RemoveWorkerMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(name.away.bot.api.ServerAPI.RemoveWorkerMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code name.away.bot.api.RemoveWorkerMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements name.away.bot.api.ServerAPI.RemoveWorkerMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.RemoveWorkerMessage.class, name.away.bot.api.ServerAPI.RemoveWorkerMessage.Builder.class);
+      }
+
+      // Construct using name.away.bot.api.ServerAPI.RemoveWorkerMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
       public Builder clear() {
         super.clear();
         id_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.RemoveWorkerMessage.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.RemoveWorkerMessage getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.RemoveWorkerMessage.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.RemoveWorkerMessage build() {
         name.away.bot.api.ServerAPI.RemoveWorkerMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -1253,17 +1636,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.RemoveWorkerMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.RemoveWorkerMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.RemoveWorkerMessage buildPartial() {
         name.away.bot.api.ServerAPI.RemoveWorkerMessage result = new name.away.bot.api.ServerAPI.RemoveWorkerMessage(this);
         int from_bitField0_ = bitField0_;
@@ -1276,7 +1649,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.RemoveWorkerMessage) {
           return mergeFrom((name.away.bot.api.ServerAPI.RemoveWorkerMessage)other);
@@ -1285,16 +1658,18 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.RemoveWorkerMessage other) {
         if (other == name.away.bot.api.ServerAPI.RemoveWorkerMessage.getDefaultInstance()) return this;
         if (other.hasId()) {
-          setId(other.getId());
+          bitField0_ |= 0x00000001;
+          id_ = other.id_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasId()) {
           
@@ -1302,57 +1677,69 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              id_ = input.readBytes();
-              break;
-            }
+        name.away.bot.api.ServerAPI.RemoveWorkerMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.RemoveWorkerMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string id = 1;
       private java.lang.Object id_ = "";
+      /**
+       * <code>required string id = 1;</code>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getId() {
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public java.lang.String getId() {
         java.lang.Object ref = id_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           id_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setId(String value) {
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1361,177 +1748,350 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string id = 1;</code>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = getDefaultInstance().getId();
         onChanged();
         return this;
       }
-      void setId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         id_ = value;
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.RemoveWorkerMessage)
     }
-    
+
     static {
       defaultInstance = new RemoveWorkerMessage(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.RemoveWorkerMessage)
   }
-  
+
   public interface JobMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required int64 id = 1;
+    /**
+     * <code>required int64 id = 1;</code>
+     */
     boolean hasId();
+    /**
+     * <code>required int64 id = 1;</code>
+     */
     long getId();
-    
+
     // required string name = 2;
+    /**
+     * <code>required string name = 2;</code>
+     */
     boolean hasName();
-    String getName();
-    
+    /**
+     * <code>required string name = 2;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
     // repeated bytes args = 3;
+    /**
+     * <code>repeated bytes args = 3;</code>
+     */
     java.util.List<com.google.protobuf.ByteString> getArgsList();
+    /**
+     * <code>repeated bytes args = 3;</code>
+     */
     int getArgsCount();
+    /**
+     * <code>repeated bytes args = 3;</code>
+     */
     com.google.protobuf.ByteString getArgs(int index);
-    
+
     // optional string workerId = 4;
+    /**
+     * <code>optional string workerId = 4;</code>
+     */
     boolean hasWorkerId();
-    String getWorkerId();
+    /**
+     * <code>optional string workerId = 4;</code>
+     */
+    java.lang.String getWorkerId();
+    /**
+     * <code>optional string workerId = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getWorkerIdBytes();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.JobMessage}
+   */
   public static final class JobMessage extends
       com.google.protobuf.GeneratedMessage
       implements JobMessageOrBuilder {
     // Use JobMessage.newBuilder() to construct.
-    private JobMessage(Builder builder) {
+    private JobMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private JobMessage(boolean noInit) {}
-    
+    private JobMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final JobMessage defaultInstance;
     public static JobMessage getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public JobMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JobMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              name_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                args_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              args_.add(input.readBytes());
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000004;
+              workerId_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          args_ = java.util.Collections.unmodifiableList(args_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.JobMessage.class, name.away.bot.api.ServerAPI.JobMessage.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<JobMessage> PARSER =
+        new com.google.protobuf.AbstractParser<JobMessage>() {
+      public JobMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JobMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JobMessage> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required int64 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
+    /**
+     * <code>required int64 id = 1;</code>
+     */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required int64 id = 1;</code>
+     */
     public long getId() {
       return id_;
     }
-    
+
     // required string name = 2;
     public static final int NAME_FIELD_NUMBER = 2;
     private java.lang.Object name_;
+    /**
+     * <code>required string name = 2;</code>
+     */
     public boolean hasName() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public String getName() {
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public java.lang.String getName() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           name_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getNameBytes() {
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // repeated bytes args = 3;
     public static final int ARGS_FIELD_NUMBER = 3;
     private java.util.List<com.google.protobuf.ByteString> args_;
+    /**
+     * <code>repeated bytes args = 3;</code>
+     */
     public java.util.List<com.google.protobuf.ByteString>
         getArgsList() {
       return args_;
     }
+    /**
+     * <code>repeated bytes args = 3;</code>
+     */
     public int getArgsCount() {
       return args_.size();
     }
+    /**
+     * <code>repeated bytes args = 3;</code>
+     */
     public com.google.protobuf.ByteString getArgs(int index) {
       return args_.get(index);
     }
-    
+
     // optional string workerId = 4;
     public static final int WORKERID_FIELD_NUMBER = 4;
     private java.lang.Object workerId_;
+    /**
+     * <code>optional string workerId = 4;</code>
+     */
     public boolean hasWorkerId() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    public String getWorkerId() {
+    /**
+     * <code>optional string workerId = 4;</code>
+     */
+    public java.lang.String getWorkerId() {
       java.lang.Object ref = workerId_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           workerId_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getWorkerIdBytes() {
+    /**
+     * <code>optional string workerId = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWorkerIdBytes() {
       java.lang.Object ref = workerId_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         workerId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     private void initFields() {
       id_ = 0L;
       name_ = "";
-      args_ = java.util.Collections.emptyList();;
+      args_ = java.util.Collections.emptyList();
       workerId_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -1543,7 +2103,7 @@ public final class ServerAPI {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -1561,12 +2121,12 @@ public final class ServerAPI {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1593,94 +2153,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.JobMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.JobMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.JobMessage}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.JobMessageOrBuilder {
@@ -1688,18 +2237,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.JobMessage.class, name.away.bot.api.ServerAPI.JobMessage.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.JobMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1710,33 +2262,33 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         id_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        args_ = java.util.Collections.emptyList();;
+        args_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
         workerId_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.JobMessage.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobMessage_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.JobMessage getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.JobMessage.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.JobMessage build() {
         name.away.bot.api.ServerAPI.JobMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -1744,17 +2296,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.JobMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.JobMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.JobMessage buildPartial() {
         name.away.bot.api.ServerAPI.JobMessage result = new name.away.bot.api.ServerAPI.JobMessage(this);
         int from_bitField0_ = bitField0_;
@@ -1780,7 +2322,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.JobMessage) {
           return mergeFrom((name.away.bot.api.ServerAPI.JobMessage)other);
@@ -1789,14 +2331,16 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.JobMessage other) {
         if (other == name.away.bot.api.ServerAPI.JobMessage.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
         if (other.hasName()) {
-          setName(other.getName());
+          bitField0_ |= 0x00000002;
+          name_ = other.name_;
+          onChanged();
         }
         if (!other.args_.isEmpty()) {
           if (args_.isEmpty()) {
@@ -1809,12 +2353,14 @@ public final class ServerAPI {
           onChanged();
         }
         if (other.hasWorkerId()) {
-          setWorkerId(other.getWorkerId());
+          bitField0_ |= 0x00000008;
+          workerId_ = other.workerId_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasId()) {
           
@@ -1826,93 +2372,102 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              id_ = input.readInt64();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              name_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              ensureArgsIsMutable();
-              args_.add(input.readBytes());
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              workerId_ = input.readBytes();
-              break;
-            }
+        name.away.bot.api.ServerAPI.JobMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.JobMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required int64 id = 1;
       private long id_ ;
+      /**
+       * <code>required int64 id = 1;</code>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required int64 id = 1;</code>
+       */
       public long getId() {
         return id_;
       }
+      /**
+       * <code>required int64 id = 1;</code>
+       */
       public Builder setId(long value) {
         bitField0_ |= 0x00000001;
         id_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int64 id = 1;</code>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0L;
         onChanged();
         return this;
       }
-      
+
       // required string name = 2;
       private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 2;</code>
+       */
       public boolean hasName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public String getName() {
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public java.lang.String getName() {
         java.lang.Object ref = name_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           name_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setName(String value) {
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1921,36 +2476,59 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string name = 2;</code>
+       */
       public Builder clearName() {
         bitField0_ = (bitField0_ & ~0x00000002);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
-      void setName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
+        return this;
       }
-      
+
       // repeated bytes args = 3;
-      private java.util.List<com.google.protobuf.ByteString> args_ = java.util.Collections.emptyList();;
+      private java.util.List<com.google.protobuf.ByteString> args_ = java.util.Collections.emptyList();
       private void ensureArgsIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           args_ = new java.util.ArrayList<com.google.protobuf.ByteString>(args_);
           bitField0_ |= 0x00000004;
          }
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public java.util.List<com.google.protobuf.ByteString>
           getArgsList() {
         return java.util.Collections.unmodifiableList(args_);
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public int getArgsCount() {
         return args_.size();
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public com.google.protobuf.ByteString getArgs(int index) {
         return args_.get(index);
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public Builder setArgs(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -1961,6 +2539,9 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public Builder addArgs(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1970,6 +2551,9 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public Builder addAllArgs(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureArgsIsMutable();
@@ -1977,29 +2561,59 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated bytes args = 3;</code>
+       */
       public Builder clearArgs() {
-        args_ = java.util.Collections.emptyList();;
+        args_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
-      
+
       // optional string workerId = 4;
       private java.lang.Object workerId_ = "";
+      /**
+       * <code>optional string workerId = 4;</code>
+       */
       public boolean hasWorkerId() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      public String getWorkerId() {
+      /**
+       * <code>optional string workerId = 4;</code>
+       */
+      public java.lang.String getWorkerId() {
         java.lang.Object ref = workerId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           workerId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setWorkerId(String value) {
+      /**
+       * <code>optional string workerId = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWorkerIdBytes() {
+        java.lang.Object ref = workerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string workerId = 4;</code>
+       */
+      public Builder setWorkerId(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2008,91 +2622,205 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string workerId = 4;</code>
+       */
       public Builder clearWorkerId() {
         bitField0_ = (bitField0_ & ~0x00000008);
         workerId_ = getDefaultInstance().getWorkerId();
         onChanged();
         return this;
       }
-      void setWorkerId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
+      /**
+       * <code>optional string workerId = 4;</code>
+       */
+      public Builder setWorkerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         workerId_ = value;
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.JobMessage)
     }
-    
+
     static {
       defaultInstance = new JobMessage(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.JobMessage)
   }
-  
+
   public interface JobsMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated .name.away.bot.api.JobMessage job = 1;
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     java.util.List<name.away.bot.api.ServerAPI.JobMessage> 
         getJobList();
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     name.away.bot.api.ServerAPI.JobMessage getJob(int index);
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     int getJobCount();
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     java.util.List<? extends name.away.bot.api.ServerAPI.JobMessageOrBuilder> 
         getJobOrBuilderList();
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     name.away.bot.api.ServerAPI.JobMessageOrBuilder getJobOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.JobsMessage}
+   */
   public static final class JobsMessage extends
       com.google.protobuf.GeneratedMessage
       implements JobsMessageOrBuilder {
     // Use JobsMessage.newBuilder() to construct.
-    private JobsMessage(Builder builder) {
+    private JobsMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private JobsMessage(boolean noInit) {}
-    
+    private JobsMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final JobsMessage defaultInstance;
     public static JobsMessage getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public JobsMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JobsMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                job_ = new java.util.ArrayList<name.away.bot.api.ServerAPI.JobMessage>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              job_.add(input.readMessage(name.away.bot.api.ServerAPI.JobMessage.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          job_ = java.util.Collections.unmodifiableList(job_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.JobsMessage.class, name.away.bot.api.ServerAPI.JobsMessage.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<JobsMessage> PARSER =
+        new com.google.protobuf.AbstractParser<JobsMessage>() {
+      public JobsMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JobsMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JobsMessage> getParserForType() {
+      return PARSER;
+    }
+
     // repeated .name.away.bot.api.JobMessage job = 1;
     public static final int JOB_FIELD_NUMBER = 1;
     private java.util.List<name.away.bot.api.ServerAPI.JobMessage> job_;
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     public java.util.List<name.away.bot.api.ServerAPI.JobMessage> getJobList() {
       return job_;
     }
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     public java.util.List<? extends name.away.bot.api.ServerAPI.JobMessageOrBuilder> 
         getJobOrBuilderList() {
       return job_;
     }
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     public int getJobCount() {
       return job_.size();
     }
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     public name.away.bot.api.ServerAPI.JobMessage getJob(int index) {
       return job_.get(index);
     }
+    /**
+     * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+     */
     public name.away.bot.api.ServerAPI.JobMessageOrBuilder getJobOrBuilder(
         int index) {
       return job_.get(index);
     }
-    
+
     private void initFields() {
       job_ = java.util.Collections.emptyList();
     }
@@ -2100,7 +2828,7 @@ public final class ServerAPI {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       for (int i = 0; i < getJobCount(); i++) {
         if (!getJob(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -2110,7 +2838,7 @@ public final class ServerAPI {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -2119,12 +2847,12 @@ public final class ServerAPI {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       for (int i = 0; i < job_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -2134,94 +2862,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.JobsMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.JobsMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.JobsMessage}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.JobsMessageOrBuilder {
@@ -2229,18 +2946,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.JobsMessage.class, name.away.bot.api.ServerAPI.JobsMessage.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.JobsMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2252,7 +2972,7 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         if (jobBuilder_ == null) {
@@ -2263,20 +2983,20 @@ public final class ServerAPI {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.JobsMessage.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_JobsMessage_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.JobsMessage getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.JobsMessage.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.JobsMessage build() {
         name.away.bot.api.ServerAPI.JobsMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -2284,17 +3004,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.JobsMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.JobsMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.JobsMessage buildPartial() {
         name.away.bot.api.ServerAPI.JobsMessage result = new name.away.bot.api.ServerAPI.JobsMessage(this);
         int from_bitField0_ = bitField0_;
@@ -2310,7 +3020,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.JobsMessage) {
           return mergeFrom((name.away.bot.api.ServerAPI.JobsMessage)other);
@@ -2319,7 +3029,7 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.JobsMessage other) {
         if (other == name.away.bot.api.ServerAPI.JobsMessage.getDefaultInstance()) return this;
         if (jobBuilder_ == null) {
@@ -2351,7 +3061,7 @@ public final class ServerAPI {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         for (int i = 0; i < getJobCount(); i++) {
           if (!getJob(i).isInitialized()) {
@@ -2361,42 +3071,26 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              name.away.bot.api.ServerAPI.JobMessage.Builder subBuilder = name.away.bot.api.ServerAPI.JobMessage.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addJob(subBuilder.buildPartial());
-              break;
-            }
+        name.away.bot.api.ServerAPI.JobsMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.JobsMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated .name.away.bot.api.JobMessage job = 1;
       private java.util.List<name.away.bot.api.ServerAPI.JobMessage> job_ =
         java.util.Collections.emptyList();
@@ -2406,10 +3100,13 @@ public final class ServerAPI {
           bitField0_ |= 0x00000001;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           name.away.bot.api.ServerAPI.JobMessage, name.away.bot.api.ServerAPI.JobMessage.Builder, name.away.bot.api.ServerAPI.JobMessageOrBuilder> jobBuilder_;
-      
+
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public java.util.List<name.away.bot.api.ServerAPI.JobMessage> getJobList() {
         if (jobBuilder_ == null) {
           return java.util.Collections.unmodifiableList(job_);
@@ -2417,6 +3114,9 @@ public final class ServerAPI {
           return jobBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public int getJobCount() {
         if (jobBuilder_ == null) {
           return job_.size();
@@ -2424,6 +3124,9 @@ public final class ServerAPI {
           return jobBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public name.away.bot.api.ServerAPI.JobMessage getJob(int index) {
         if (jobBuilder_ == null) {
           return job_.get(index);
@@ -2431,6 +3134,9 @@ public final class ServerAPI {
           return jobBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder setJob(
           int index, name.away.bot.api.ServerAPI.JobMessage value) {
         if (jobBuilder_ == null) {
@@ -2445,6 +3151,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder setJob(
           int index, name.away.bot.api.ServerAPI.JobMessage.Builder builderForValue) {
         if (jobBuilder_ == null) {
@@ -2456,6 +3165,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder addJob(name.away.bot.api.ServerAPI.JobMessage value) {
         if (jobBuilder_ == null) {
           if (value == null) {
@@ -2469,6 +3181,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder addJob(
           int index, name.away.bot.api.ServerAPI.JobMessage value) {
         if (jobBuilder_ == null) {
@@ -2483,6 +3198,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder addJob(
           name.away.bot.api.ServerAPI.JobMessage.Builder builderForValue) {
         if (jobBuilder_ == null) {
@@ -2494,6 +3212,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder addJob(
           int index, name.away.bot.api.ServerAPI.JobMessage.Builder builderForValue) {
         if (jobBuilder_ == null) {
@@ -2505,6 +3226,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder addAllJob(
           java.lang.Iterable<? extends name.away.bot.api.ServerAPI.JobMessage> values) {
         if (jobBuilder_ == null) {
@@ -2516,6 +3240,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder clearJob() {
         if (jobBuilder_ == null) {
           job_ = java.util.Collections.emptyList();
@@ -2526,6 +3253,9 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public Builder removeJob(int index) {
         if (jobBuilder_ == null) {
           ensureJobIsMutable();
@@ -2536,10 +3266,16 @@ public final class ServerAPI {
         }
         return this;
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public name.away.bot.api.ServerAPI.JobMessage.Builder getJobBuilder(
           int index) {
         return getJobFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public name.away.bot.api.ServerAPI.JobMessageOrBuilder getJobOrBuilder(
           int index) {
         if (jobBuilder_ == null) {
@@ -2547,6 +3283,9 @@ public final class ServerAPI {
           return jobBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public java.util.List<? extends name.away.bot.api.ServerAPI.JobMessageOrBuilder> 
            getJobOrBuilderList() {
         if (jobBuilder_ != null) {
@@ -2555,15 +3294,24 @@ public final class ServerAPI {
           return java.util.Collections.unmodifiableList(job_);
         }
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public name.away.bot.api.ServerAPI.JobMessage.Builder addJobBuilder() {
         return getJobFieldBuilder().addBuilder(
             name.away.bot.api.ServerAPI.JobMessage.getDefaultInstance());
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public name.away.bot.api.ServerAPI.JobMessage.Builder addJobBuilder(
           int index) {
         return getJobFieldBuilder().addBuilder(
             index, name.away.bot.api.ServerAPI.JobMessage.getDefaultInstance());
       }
+      /**
+       * <code>repeated .name.away.bot.api.JobMessage job = 1;</code>
+       */
       public java.util.List<name.away.bot.api.ServerAPI.JobMessage.Builder> 
            getJobBuilderList() {
         return getJobFieldBuilder().getBuilderList();
@@ -2582,100 +3330,206 @@ public final class ServerAPI {
         }
         return jobBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.JobsMessage)
     }
-    
+
     static {
       defaultInstance = new JobsMessage(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.JobsMessage)
   }
-  
+
   public interface TakeJobMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string workerId = 1;
+    /**
+     * <code>required string workerId = 1;</code>
+     */
     boolean hasWorkerId();
-    String getWorkerId();
-    
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    java.lang.String getWorkerId();
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getWorkerIdBytes();
+
     // required int64 jobId = 2;
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     boolean hasJobId();
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     long getJobId();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.TakeJobMessage}
+   */
   public static final class TakeJobMessage extends
       com.google.protobuf.GeneratedMessage
       implements TakeJobMessageOrBuilder {
     // Use TakeJobMessage.newBuilder() to construct.
-    private TakeJobMessage(Builder builder) {
+    private TakeJobMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private TakeJobMessage(boolean noInit) {}
-    
+    private TakeJobMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final TakeJobMessage defaultInstance;
     public static TakeJobMessage getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public TakeJobMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TakeJobMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              workerId_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              jobId_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.TakeJobMessage.class, name.away.bot.api.ServerAPI.TakeJobMessage.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<TakeJobMessage> PARSER =
+        new com.google.protobuf.AbstractParser<TakeJobMessage>() {
+      public TakeJobMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TakeJobMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TakeJobMessage> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string workerId = 1;
     public static final int WORKERID_FIELD_NUMBER = 1;
     private java.lang.Object workerId_;
+    /**
+     * <code>required string workerId = 1;</code>
+     */
     public boolean hasWorkerId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getWorkerId() {
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public java.lang.String getWorkerId() {
       java.lang.Object ref = workerId_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           workerId_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getWorkerIdBytes() {
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWorkerIdBytes() {
       java.lang.Object ref = workerId_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         workerId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required int64 jobId = 2;
     public static final int JOBID_FIELD_NUMBER = 2;
     private long jobId_;
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     public boolean hasJobId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     public long getJobId() {
       return jobId_;
     }
-    
+
     private void initFields() {
       workerId_ = "";
       jobId_ = 0L;
@@ -2684,7 +3538,7 @@ public final class ServerAPI {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasWorkerId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -2696,7 +3550,7 @@ public final class ServerAPI {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -2708,12 +3562,12 @@ public final class ServerAPI {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2727,94 +3581,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.TakeJobMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.TakeJobMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.TakeJobMessage}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.TakeJobMessageOrBuilder {
@@ -2822,18 +3665,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.TakeJobMessage.class, name.away.bot.api.ServerAPI.TakeJobMessage.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.TakeJobMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2844,7 +3690,7 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         workerId_ = "";
@@ -2853,20 +3699,20 @@ public final class ServerAPI {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.TakeJobMessage.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_TakeJobMessage_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.TakeJobMessage getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.TakeJobMessage.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.TakeJobMessage build() {
         name.away.bot.api.ServerAPI.TakeJobMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -2874,17 +3720,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.TakeJobMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.TakeJobMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.TakeJobMessage buildPartial() {
         name.away.bot.api.ServerAPI.TakeJobMessage result = new name.away.bot.api.ServerAPI.TakeJobMessage(this);
         int from_bitField0_ = bitField0_;
@@ -2901,7 +3737,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.TakeJobMessage) {
           return mergeFrom((name.away.bot.api.ServerAPI.TakeJobMessage)other);
@@ -2910,11 +3746,13 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.TakeJobMessage other) {
         if (other == name.away.bot.api.ServerAPI.TakeJobMessage.getDefaultInstance()) return this;
         if (other.hasWorkerId()) {
-          setWorkerId(other.getWorkerId());
+          bitField0_ |= 0x00000001;
+          workerId_ = other.workerId_;
+          onChanged();
         }
         if (other.hasJobId()) {
           setJobId(other.getJobId());
@@ -2922,7 +3760,7 @@ public final class ServerAPI {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasWorkerId()) {
           
@@ -2934,62 +3772,69 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              workerId_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              jobId_ = input.readInt64();
-              break;
-            }
+        name.away.bot.api.ServerAPI.TakeJobMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.TakeJobMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string workerId = 1;
       private java.lang.Object workerId_ = "";
+      /**
+       * <code>required string workerId = 1;</code>
+       */
       public boolean hasWorkerId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getWorkerId() {
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public java.lang.String getWorkerId() {
         java.lang.Object ref = workerId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           workerId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setWorkerId(String value) {
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWorkerIdBytes() {
+        java.lang.Object ref = workerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder setWorkerId(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2998,150 +3843,344 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
       public Builder clearWorkerId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         workerId_ = getDefaultInstance().getWorkerId();
         onChanged();
         return this;
       }
-      void setWorkerId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder setWorkerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         workerId_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required int64 jobId = 2;
       private long jobId_ ;
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public boolean hasJobId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public long getJobId() {
         return jobId_;
       }
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public Builder setJobId(long value) {
         bitField0_ |= 0x00000002;
         jobId_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public Builder clearJobId() {
         bitField0_ = (bitField0_ & ~0x00000002);
         jobId_ = 0L;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.TakeJobMessage)
     }
-    
+
     static {
       defaultInstance = new TakeJobMessage(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.TakeJobMessage)
   }
-  
+
   public interface CompleteJobMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required int64 jobId = 2;
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     boolean hasJobId();
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     long getJobId();
-    
+
+    // required string workerId = 1;
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    boolean hasWorkerId();
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    java.lang.String getWorkerId();
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getWorkerIdBytes();
+
     // optional bytes result = 3;
+    /**
+     * <code>optional bytes result = 3;</code>
+     */
     boolean hasResult();
+    /**
+     * <code>optional bytes result = 3;</code>
+     */
     com.google.protobuf.ByteString getResult();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.CompleteJobMessage}
+   */
   public static final class CompleteJobMessage extends
       com.google.protobuf.GeneratedMessage
       implements CompleteJobMessageOrBuilder {
     // Use CompleteJobMessage.newBuilder() to construct.
-    private CompleteJobMessage(Builder builder) {
+    private CompleteJobMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private CompleteJobMessage(boolean noInit) {}
-    
+    private CompleteJobMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final CompleteJobMessage defaultInstance;
     public static CompleteJobMessage getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public CompleteJobMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CompleteJobMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000002;
+              workerId_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000001;
+              jobId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              result_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.CompleteJobMessage.class, name.away.bot.api.ServerAPI.CompleteJobMessage.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<CompleteJobMessage> PARSER =
+        new com.google.protobuf.AbstractParser<CompleteJobMessage>() {
+      public CompleteJobMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CompleteJobMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CompleteJobMessage> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required int64 jobId = 2;
     public static final int JOBID_FIELD_NUMBER = 2;
     private long jobId_;
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     public boolean hasJobId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required int64 jobId = 2;</code>
+     */
     public long getJobId() {
       return jobId_;
     }
-    
+
+    // required string workerId = 1;
+    public static final int WORKERID_FIELD_NUMBER = 1;
+    private java.lang.Object workerId_;
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public boolean hasWorkerId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public java.lang.String getWorkerId() {
+      java.lang.Object ref = workerId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          workerId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWorkerIdBytes() {
+      java.lang.Object ref = workerId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workerId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     // optional bytes result = 3;
     public static final int RESULT_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString result_;
+    /**
+     * <code>optional bytes result = 3;</code>
+     */
     public boolean hasResult() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
+    /**
+     * <code>optional bytes result = 3;</code>
+     */
     public com.google.protobuf.ByteString getResult() {
       return result_;
     }
-    
+
     private void initFields() {
       jobId_ = 0L;
+      workerId_ = "";
       result_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasJobId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasWorkerId()) {
         memoizedIsInitialized = 0;
         return false;
       }
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(1, getWorkerIdBytes());
+      }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(2, jobId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, result_);
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getWorkerIdBytes());
+      }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, jobId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, result_);
       }
@@ -3149,94 +4188,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.CompleteJobMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.CompleteJobMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.CompleteJobMessage}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.CompleteJobMessageOrBuilder {
@@ -3244,18 +4272,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.CompleteJobMessage.class, name.away.bot.api.ServerAPI.CompleteJobMessage.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.CompleteJobMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3266,29 +4297,31 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         jobId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        result_ = com.google.protobuf.ByteString.EMPTY;
+        workerId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        result_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.CompleteJobMessage.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_CompleteJobMessage_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.CompleteJobMessage getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.CompleteJobMessage.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.CompleteJobMessage build() {
         name.away.bot.api.ServerAPI.CompleteJobMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -3296,17 +4329,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.CompleteJobMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.CompleteJobMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.CompleteJobMessage buildPartial() {
         name.away.bot.api.ServerAPI.CompleteJobMessage result = new name.away.bot.api.ServerAPI.CompleteJobMessage(this);
         int from_bitField0_ = bitField0_;
@@ -3318,12 +4341,16 @@ public final class ServerAPI {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
+        result.workerId_ = workerId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.result_ = result_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.CompleteJobMessage) {
           return mergeFrom((name.away.bot.api.ServerAPI.CompleteJobMessage)other);
@@ -3332,11 +4359,16 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.CompleteJobMessage other) {
         if (other == name.away.bot.api.ServerAPI.CompleteJobMessage.getDefaultInstance()) return this;
         if (other.hasJobId()) {
           setJobId(other.getJobId());
+        }
+        if (other.hasWorkerId()) {
+          bitField0_ |= 0x00000002;
+          workerId_ = other.workerId_;
+          onChanged();
         }
         if (other.hasResult()) {
           setResult(other.getResult());
@@ -3344,170 +4376,348 @@ public final class ServerAPI {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasJobId()) {
           
           return false;
         }
+        if (!hasWorkerId()) {
+          
+          return false;
+        }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000001;
-              jobId_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              bitField0_ |= 0x00000002;
-              result_ = input.readBytes();
-              break;
-            }
+        name.away.bot.api.ServerAPI.CompleteJobMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.CompleteJobMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required int64 jobId = 2;
       private long jobId_ ;
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public boolean hasJobId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public long getJobId() {
         return jobId_;
       }
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public Builder setJobId(long value) {
         bitField0_ |= 0x00000001;
         jobId_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int64 jobId = 2;</code>
+       */
       public Builder clearJobId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         jobId_ = 0L;
         onChanged();
         return this;
       }
-      
-      // optional bytes result = 3;
-      private com.google.protobuf.ByteString result_ = com.google.protobuf.ByteString.EMPTY;
-      public boolean hasResult() {
+
+      // required string workerId = 1;
+      private java.lang.Object workerId_ = "";
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public boolean hasWorkerId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public com.google.protobuf.ByteString getResult() {
-        return result_;
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public java.lang.String getWorkerId() {
+        java.lang.Object ref = workerId_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          workerId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
-      public Builder setResult(com.google.protobuf.ByteString value) {
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWorkerIdBytes() {
+        java.lang.Object ref = workerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder setWorkerId(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
+        workerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder clearWorkerId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        workerId_ = getDefaultInstance().getWorkerId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder setWorkerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        workerId_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes result = 3;
+      private com.google.protobuf.ByteString result_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes result = 3;</code>
+       */
+      public boolean hasResult() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bytes result = 3;</code>
+       */
+      public com.google.protobuf.ByteString getResult() {
+        return result_;
+      }
+      /**
+       * <code>optional bytes result = 3;</code>
+       */
+      public Builder setResult(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         result_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional bytes result = 3;</code>
+       */
       public Builder clearResult() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         result_ = getDefaultInstance().getResult();
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.CompleteJobMessage)
     }
-    
+
     static {
       defaultInstance = new CompleteJobMessage(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.CompleteJobMessage)
   }
-  
+
   public interface SuccessResponseMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required bool success = 1;
+    /**
+     * <code>required bool success = 1;</code>
+     */
     boolean hasSuccess();
+    /**
+     * <code>required bool success = 1;</code>
+     */
     boolean getSuccess();
-    
+
     // optional int32 error = 2;
+    /**
+     * <code>optional int32 error = 2;</code>
+     */
     boolean hasError();
+    /**
+     * <code>optional int32 error = 2;</code>
+     */
     int getError();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.SuccessResponseMessage}
+   */
   public static final class SuccessResponseMessage extends
       com.google.protobuf.GeneratedMessage
       implements SuccessResponseMessageOrBuilder {
     // Use SuccessResponseMessage.newBuilder() to construct.
-    private SuccessResponseMessage(Builder builder) {
+    private SuccessResponseMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private SuccessResponseMessage(boolean noInit) {}
-    
+    private SuccessResponseMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final SuccessResponseMessage defaultInstance;
     public static SuccessResponseMessage getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public SuccessResponseMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SuccessResponseMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              success_ = input.readBool();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              error_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.SuccessResponseMessage.class, name.away.bot.api.ServerAPI.SuccessResponseMessage.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<SuccessResponseMessage> PARSER =
+        new com.google.protobuf.AbstractParser<SuccessResponseMessage>() {
+      public SuccessResponseMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SuccessResponseMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SuccessResponseMessage> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required bool success = 1;
     public static final int SUCCESS_FIELD_NUMBER = 1;
     private boolean success_;
+    /**
+     * <code>required bool success = 1;</code>
+     */
     public boolean hasSuccess() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required bool success = 1;</code>
+     */
     public boolean getSuccess() {
       return success_;
     }
-    
+
     // optional int32 error = 2;
     public static final int ERROR_FIELD_NUMBER = 2;
     private int error_;
+    /**
+     * <code>optional int32 error = 2;</code>
+     */
     public boolean hasError() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>optional int32 error = 2;</code>
+     */
     public int getError() {
       return error_;
     }
-    
+
     private void initFields() {
       success_ = false;
       error_ = 0;
@@ -3516,7 +4726,7 @@ public final class ServerAPI {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasSuccess()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3524,7 +4734,7 @@ public final class ServerAPI {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -3536,12 +4746,12 @@ public final class ServerAPI {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3555,94 +4765,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.SuccessResponseMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.SuccessResponseMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.SuccessResponseMessage}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.SuccessResponseMessageOrBuilder {
@@ -3650,18 +4849,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.SuccessResponseMessage.class, name.away.bot.api.ServerAPI.SuccessResponseMessage.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.SuccessResponseMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3672,7 +4874,7 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         success_ = false;
@@ -3681,20 +4883,20 @@ public final class ServerAPI {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.SuccessResponseMessage.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_SuccessResponseMessage_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage build() {
         name.away.bot.api.ServerAPI.SuccessResponseMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -3702,17 +4904,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.SuccessResponseMessage buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.SuccessResponseMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage buildPartial() {
         name.away.bot.api.ServerAPI.SuccessResponseMessage result = new name.away.bot.api.ServerAPI.SuccessResponseMessage(this);
         int from_bitField0_ = bitField0_;
@@ -3729,7 +4921,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.SuccessResponseMessage) {
           return mergeFrom((name.away.bot.api.ServerAPI.SuccessResponseMessage)other);
@@ -3738,7 +4930,7 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.SuccessResponseMessage other) {
         if (other == name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance()) return this;
         if (other.hasSuccess()) {
@@ -3750,7 +4942,7 @@ public final class ServerAPI {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasSuccess()) {
           
@@ -3758,167 +4950,260 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              success_ = input.readBool();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              error_ = input.readInt32();
-              break;
-            }
+        name.away.bot.api.ServerAPI.SuccessResponseMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.SuccessResponseMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required bool success = 1;
       private boolean success_ ;
+      /**
+       * <code>required bool success = 1;</code>
+       */
       public boolean hasSuccess() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required bool success = 1;</code>
+       */
       public boolean getSuccess() {
         return success_;
       }
+      /**
+       * <code>required bool success = 1;</code>
+       */
       public Builder setSuccess(boolean value) {
         bitField0_ |= 0x00000001;
         success_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required bool success = 1;</code>
+       */
       public Builder clearSuccess() {
         bitField0_ = (bitField0_ & ~0x00000001);
         success_ = false;
         onChanged();
         return this;
       }
-      
+
       // optional int32 error = 2;
       private int error_ ;
+      /**
+       * <code>optional int32 error = 2;</code>
+       */
       public boolean hasError() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>optional int32 error = 2;</code>
+       */
       public int getError() {
         return error_;
       }
+      /**
+       * <code>optional int32 error = 2;</code>
+       */
       public Builder setError(int value) {
         bitField0_ |= 0x00000002;
         error_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int32 error = 2;</code>
+       */
       public Builder clearError() {
         bitField0_ = (bitField0_ & ~0x00000002);
         error_ = 0;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.SuccessResponseMessage)
     }
-    
+
     static {
       defaultInstance = new SuccessResponseMessage(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.SuccessResponseMessage)
   }
-  
+
   public interface WorkerIdOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string workerId = 1;
+    /**
+     * <code>required string workerId = 1;</code>
+     */
     boolean hasWorkerId();
-    String getWorkerId();
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    java.lang.String getWorkerId();
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getWorkerIdBytes();
   }
+  /**
+   * Protobuf type {@code name.away.bot.api.WorkerId}
+   */
   public static final class WorkerId extends
       com.google.protobuf.GeneratedMessage
       implements WorkerIdOrBuilder {
     // Use WorkerId.newBuilder() to construct.
-    private WorkerId(Builder builder) {
+    private WorkerId(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private WorkerId(boolean noInit) {}
-    
+    private WorkerId(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final WorkerId defaultInstance;
     public static WorkerId getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public WorkerId getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WorkerId(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              workerId_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_fieldAccessorTable;
+      return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              name.away.bot.api.ServerAPI.WorkerId.class, name.away.bot.api.ServerAPI.WorkerId.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<WorkerId> PARSER =
+        new com.google.protobuf.AbstractParser<WorkerId>() {
+      public WorkerId parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WorkerId(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WorkerId> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string workerId = 1;
     public static final int WORKERID_FIELD_NUMBER = 1;
     private java.lang.Object workerId_;
+    /**
+     * <code>required string workerId = 1;</code>
+     */
     public boolean hasWorkerId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getWorkerId() {
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public java.lang.String getWorkerId() {
       java.lang.Object ref = workerId_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           workerId_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getWorkerIdBytes() {
+    /**
+     * <code>required string workerId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWorkerIdBytes() {
       java.lang.Object ref = workerId_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         workerId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     private void initFields() {
       workerId_ = "";
     }
@@ -3926,7 +5211,7 @@ public final class ServerAPI {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasWorkerId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3934,7 +5219,7 @@ public final class ServerAPI {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -3943,12 +5228,12 @@ public final class ServerAPI {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3958,94 +5243,83 @@ public final class ServerAPI {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static name.away.bot.api.ServerAPI.WorkerId parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(name.away.bot.api.ServerAPI.WorkerId prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code name.away.bot.api.WorkerId}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements name.away.bot.api.ServerAPI.WorkerIdOrBuilder {
@@ -4053,18 +5327,21 @@ public final class ServerAPI {
           getDescriptor() {
         return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_fieldAccessorTable;
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                name.away.bot.api.ServerAPI.WorkerId.class, name.away.bot.api.ServerAPI.WorkerId.Builder.class);
       }
-      
+
       // Construct using name.away.bot.api.ServerAPI.WorkerId.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4075,27 +5352,27 @@ public final class ServerAPI {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         workerId_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return name.away.bot.api.ServerAPI.WorkerId.getDescriptor();
+        return name.away.bot.api.ServerAPI.internal_static_name_away_bot_api_WorkerId_descriptor;
       }
-      
+
       public name.away.bot.api.ServerAPI.WorkerId getDefaultInstanceForType() {
         return name.away.bot.api.ServerAPI.WorkerId.getDefaultInstance();
       }
-      
+
       public name.away.bot.api.ServerAPI.WorkerId build() {
         name.away.bot.api.ServerAPI.WorkerId result = buildPartial();
         if (!result.isInitialized()) {
@@ -4103,17 +5380,7 @@ public final class ServerAPI {
         }
         return result;
       }
-      
-      private name.away.bot.api.ServerAPI.WorkerId buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        name.away.bot.api.ServerAPI.WorkerId result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public name.away.bot.api.ServerAPI.WorkerId buildPartial() {
         name.away.bot.api.ServerAPI.WorkerId result = new name.away.bot.api.ServerAPI.WorkerId(this);
         int from_bitField0_ = bitField0_;
@@ -4126,7 +5393,7 @@ public final class ServerAPI {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof name.away.bot.api.ServerAPI.WorkerId) {
           return mergeFrom((name.away.bot.api.ServerAPI.WorkerId)other);
@@ -4135,16 +5402,18 @@ public final class ServerAPI {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(name.away.bot.api.ServerAPI.WorkerId other) {
         if (other == name.away.bot.api.ServerAPI.WorkerId.getDefaultInstance()) return this;
         if (other.hasWorkerId()) {
-          setWorkerId(other.getWorkerId());
+          bitField0_ |= 0x00000001;
+          workerId_ = other.workerId_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasWorkerId()) {
           
@@ -4152,57 +5421,69 @@ public final class ServerAPI {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              workerId_ = input.readBytes();
-              break;
-            }
+        name.away.bot.api.ServerAPI.WorkerId parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (name.away.bot.api.ServerAPI.WorkerId) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string workerId = 1;
       private java.lang.Object workerId_ = "";
+      /**
+       * <code>required string workerId = 1;</code>
+       */
       public boolean hasWorkerId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getWorkerId() {
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public java.lang.String getWorkerId() {
         java.lang.Object ref = workerId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           workerId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setWorkerId(String value) {
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWorkerIdBytes() {
+        java.lang.Object ref = workerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder setWorkerId(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4211,66 +5492,98 @@ public final class ServerAPI {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string workerId = 1;</code>
+       */
       public Builder clearWorkerId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         workerId_ = getDefaultInstance().getWorkerId();
         onChanged();
         return this;
       }
-      void setWorkerId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string workerId = 1;</code>
+       */
+      public Builder setWorkerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         workerId_ = value;
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:name.away.bot.api.WorkerId)
     }
-    
+
     static {
       defaultInstance = new WorkerId(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:name.away.bot.api.WorkerId)
   }
-  
+
+  /**
+   * Protobuf service {@code name.away.bot.api.ServerAPIService}
+   */
   public static abstract class ServerAPIService
       implements com.google.protobuf.Service {
     protected ServerAPIService() {}
-    
+
     public interface Interface {
+      /**
+       * <code>rpc RegisterWorker(.name.away.bot.api.RegisterWorkerMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+       */
       public abstract void registerWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RegisterWorkerMessage request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-      
+
+      /**
+       * <code>rpc RemoveWorker(.name.away.bot.api.RemoveWorkerMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+       */
       public abstract void removeWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RemoveWorkerMessage request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-      
+
+      /**
+       * <code>rpc GetJobs(.name.away.bot.api.WorkerId) returns (.name.away.bot.api.JobsMessage);</code>
+       */
       public abstract void getJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.WorkerId request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobsMessage> done);
-      
+
+      /**
+       * <code>rpc TakeJobs(.name.away.bot.api.TakeJobMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+       */
       public abstract void takeJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.TakeJobMessage request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-      
+
+      /**
+       * <code>rpc JobCompleted(.name.away.bot.api.CompleteJobMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+       */
       public abstract void jobCompleted(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.CompleteJobMessage request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-      
+
+      /**
+       * <code>rpc ExecuteJob(.name.away.bot.api.JobMessage) returns (.name.away.bot.api.CompleteJobMessage);</code>
+       */
       public abstract void executeJob(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.JobMessage request,
           com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.CompleteJobMessage> done);
-      
+
     }
-    
+
     public static com.google.protobuf.Service newReflectiveService(
         final Interface impl) {
       return new ServerAPIService() {
@@ -4281,7 +5594,7 @@ public final class ServerAPI {
             com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done) {
           impl.registerWorker(controller, request, done);
         }
-        
+
         @java.lang.Override
         public  void removeWorker(
             com.google.protobuf.RpcController controller,
@@ -4289,7 +5602,7 @@ public final class ServerAPI {
             com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done) {
           impl.removeWorker(controller, request, done);
         }
-        
+
         @java.lang.Override
         public  void getJobs(
             com.google.protobuf.RpcController controller,
@@ -4297,7 +5610,7 @@ public final class ServerAPI {
             com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobsMessage> done) {
           impl.getJobs(controller, request, done);
         }
-        
+
         @java.lang.Override
         public  void takeJobs(
             com.google.protobuf.RpcController controller,
@@ -4305,7 +5618,7 @@ public final class ServerAPI {
             com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done) {
           impl.takeJobs(controller, request, done);
         }
-        
+
         @java.lang.Override
         public  void jobCompleted(
             com.google.protobuf.RpcController controller,
@@ -4313,7 +5626,7 @@ public final class ServerAPI {
             com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done) {
           impl.jobCompleted(controller, request, done);
         }
-        
+
         @java.lang.Override
         public  void executeJob(
             com.google.protobuf.RpcController controller,
@@ -4321,10 +5634,10 @@ public final class ServerAPI {
             com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.CompleteJobMessage> done) {
           impl.executeJob(controller, request, done);
         }
-        
+
       };
     }
-    
+
     public static com.google.protobuf.BlockingService
         newReflectiveBlockingService(final BlockingInterface impl) {
       return new com.google.protobuf.BlockingService() {
@@ -4332,7 +5645,7 @@ public final class ServerAPI {
             getDescriptorForType() {
           return getDescriptor();
         }
-        
+
         public final com.google.protobuf.Message callBlockingMethod(
             com.google.protobuf.Descriptors.MethodDescriptor method,
             com.google.protobuf.RpcController controller,
@@ -4360,7 +5673,7 @@ public final class ServerAPI {
               throw new java.lang.AssertionError("Can't get here.");
           }
         }
-        
+
         public final com.google.protobuf.Message
             getRequestPrototype(
             com.google.protobuf.Descriptors.MethodDescriptor method) {
@@ -4386,7 +5699,7 @@ public final class ServerAPI {
               throw new java.lang.AssertionError("Can't get here.");
           }
         }
-        
+
         public final com.google.protobuf.Message
             getResponsePrototype(
             com.google.protobuf.Descriptors.MethodDescriptor method) {
@@ -4412,40 +5725,58 @@ public final class ServerAPI {
               throw new java.lang.AssertionError("Can't get here.");
           }
         }
-        
+
       };
     }
-    
+
+    /**
+     * <code>rpc RegisterWorker(.name.away.bot.api.RegisterWorkerMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+     */
     public abstract void registerWorker(
         com.google.protobuf.RpcController controller,
         name.away.bot.api.ServerAPI.RegisterWorkerMessage request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-    
+
+    /**
+     * <code>rpc RemoveWorker(.name.away.bot.api.RemoveWorkerMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+     */
     public abstract void removeWorker(
         com.google.protobuf.RpcController controller,
         name.away.bot.api.ServerAPI.RemoveWorkerMessage request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-    
+
+    /**
+     * <code>rpc GetJobs(.name.away.bot.api.WorkerId) returns (.name.away.bot.api.JobsMessage);</code>
+     */
     public abstract void getJobs(
         com.google.protobuf.RpcController controller,
         name.away.bot.api.ServerAPI.WorkerId request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.JobsMessage> done);
-    
+
+    /**
+     * <code>rpc TakeJobs(.name.away.bot.api.TakeJobMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+     */
     public abstract void takeJobs(
         com.google.protobuf.RpcController controller,
         name.away.bot.api.ServerAPI.TakeJobMessage request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-    
+
+    /**
+     * <code>rpc JobCompleted(.name.away.bot.api.CompleteJobMessage) returns (.name.away.bot.api.SuccessResponseMessage);</code>
+     */
     public abstract void jobCompleted(
         com.google.protobuf.RpcController controller,
         name.away.bot.api.ServerAPI.CompleteJobMessage request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.SuccessResponseMessage> done);
-    
+
+    /**
+     * <code>rpc ExecuteJob(.name.away.bot.api.JobMessage) returns (.name.away.bot.api.CompleteJobMessage);</code>
+     */
     public abstract void executeJob(
         com.google.protobuf.RpcController controller,
         name.away.bot.api.ServerAPI.JobMessage request,
         com.google.protobuf.RpcCallback<name.away.bot.api.ServerAPI.CompleteJobMessage> done);
-    
+
     public static final
         com.google.protobuf.Descriptors.ServiceDescriptor
         getDescriptor() {
@@ -4455,7 +5786,7 @@ public final class ServerAPI {
         getDescriptorForType() {
       return getDescriptor();
     }
-    
+
     public final void callMethod(
         com.google.protobuf.Descriptors.MethodDescriptor method,
         com.google.protobuf.RpcController controller,
@@ -4502,7 +5833,7 @@ public final class ServerAPI {
           throw new java.lang.AssertionError("Can't get here.");
       }
     }
-    
+
     public final com.google.protobuf.Message
         getRequestPrototype(
         com.google.protobuf.Descriptors.MethodDescriptor method) {
@@ -4528,7 +5859,7 @@ public final class ServerAPI {
           throw new java.lang.AssertionError("Can't get here.");
       }
     }
-    
+
     public final com.google.protobuf.Message
         getResponsePrototype(
         com.google.protobuf.Descriptors.MethodDescriptor method) {
@@ -4554,23 +5885,23 @@ public final class ServerAPI {
           throw new java.lang.AssertionError("Can't get here.");
       }
     }
-    
+
     public static Stub newStub(
         com.google.protobuf.RpcChannel channel) {
       return new Stub(channel);
     }
-    
+
     public static final class Stub extends name.away.bot.api.ServerAPI.ServerAPIService implements Interface {
       private Stub(com.google.protobuf.RpcChannel channel) {
         this.channel = channel;
       }
-      
+
       private final com.google.protobuf.RpcChannel channel;
-      
+
       public com.google.protobuf.RpcChannel getChannel() {
         return channel;
       }
-      
+
       public  void registerWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RegisterWorkerMessage request,
@@ -4585,7 +5916,7 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.SuccessResponseMessage.class,
             name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance()));
       }
-      
+
       public  void removeWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RemoveWorkerMessage request,
@@ -4600,7 +5931,7 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.SuccessResponseMessage.class,
             name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance()));
       }
-      
+
       public  void getJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.WorkerId request,
@@ -4615,7 +5946,7 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.JobsMessage.class,
             name.away.bot.api.ServerAPI.JobsMessage.getDefaultInstance()));
       }
-      
+
       public  void takeJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.TakeJobMessage request,
@@ -4630,7 +5961,7 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.SuccessResponseMessage.class,
             name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance()));
       }
-      
+
       public  void jobCompleted(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.CompleteJobMessage request,
@@ -4645,7 +5976,7 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.SuccessResponseMessage.class,
             name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance()));
       }
-      
+
       public  void executeJob(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.JobMessage request,
@@ -4661,51 +5992,51 @@ public final class ServerAPI {
             name.away.bot.api.ServerAPI.CompleteJobMessage.getDefaultInstance()));
       }
     }
-    
+
     public static BlockingInterface newBlockingStub(
         com.google.protobuf.BlockingRpcChannel channel) {
       return new BlockingStub(channel);
     }
-    
+
     public interface BlockingInterface {
       public name.away.bot.api.ServerAPI.SuccessResponseMessage registerWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RegisterWorkerMessage request)
           throws com.google.protobuf.ServiceException;
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage removeWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RemoveWorkerMessage request)
           throws com.google.protobuf.ServiceException;
-      
+
       public name.away.bot.api.ServerAPI.JobsMessage getJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.WorkerId request)
           throws com.google.protobuf.ServiceException;
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage takeJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.TakeJobMessage request)
           throws com.google.protobuf.ServiceException;
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage jobCompleted(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.CompleteJobMessage request)
           throws com.google.protobuf.ServiceException;
-      
+
       public name.away.bot.api.ServerAPI.CompleteJobMessage executeJob(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.JobMessage request)
           throws com.google.protobuf.ServiceException;
     }
-    
+
     private static final class BlockingStub implements BlockingInterface {
       private BlockingStub(com.google.protobuf.BlockingRpcChannel channel) {
         this.channel = channel;
       }
-      
+
       private final com.google.protobuf.BlockingRpcChannel channel;
-      
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage registerWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RegisterWorkerMessage request)
@@ -4716,8 +6047,8 @@ public final class ServerAPI {
           request,
           name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance());
       }
-      
-      
+
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage removeWorker(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.RemoveWorkerMessage request)
@@ -4728,8 +6059,8 @@ public final class ServerAPI {
           request,
           name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance());
       }
-      
-      
+
+
       public name.away.bot.api.ServerAPI.JobsMessage getJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.WorkerId request)
@@ -4740,8 +6071,8 @@ public final class ServerAPI {
           request,
           name.away.bot.api.ServerAPI.JobsMessage.getDefaultInstance());
       }
-      
-      
+
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage takeJobs(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.TakeJobMessage request)
@@ -4752,8 +6083,8 @@ public final class ServerAPI {
           request,
           name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance());
       }
-      
-      
+
+
       public name.away.bot.api.ServerAPI.SuccessResponseMessage jobCompleted(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.CompleteJobMessage request)
@@ -4764,8 +6095,8 @@ public final class ServerAPI {
           request,
           name.away.bot.api.ServerAPI.SuccessResponseMessage.getDefaultInstance());
       }
-      
-      
+
+
       public name.away.bot.api.ServerAPI.CompleteJobMessage executeJob(
           com.google.protobuf.RpcController controller,
           name.away.bot.api.ServerAPI.JobMessage request)
@@ -4776,10 +6107,12 @@ public final class ServerAPI {
           request,
           name.away.bot.api.ServerAPI.CompleteJobMessage.getDefaultInstance());
       }
-      
+
     }
+
+    // @@protoc_insertion_point(class_scope:name.away.bot.api.ServerAPIService)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_name_away_bot_api_ClientNotification_descriptor;
   private static
@@ -4825,7 +6158,7 @@ public final class ServerAPI {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_name_away_bot_api_WorkerId_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -4843,26 +6176,26 @@ public final class ServerAPI {
       "(\t\022\014\n\004args\030\003 \003(\014\022\020\n\010workerId\030\004 \001(\t\"9\n\013Jo" +
       "bsMessage\022*\n\003job\030\001 \003(\0132\035.name.away.bot.a" +
       "pi.JobMessage\"1\n\016TakeJobMessage\022\020\n\010worke" +
-      "rId\030\001 \002(\t\022\r\n\005jobId\030\002 \002(\003\"3\n\022CompleteJobM",
-      "essage\022\r\n\005jobId\030\002 \002(\003\022\016\n\006result\030\003 \001(\014\"8\n" +
-      "\026SuccessResponseMessage\022\017\n\007success\030\001 \002(\010" +
-      "\022\r\n\005error\030\002 \001(\005\"\034\n\010WorkerId\022\020\n\010workerId\030" +
-      "\001 \002(\t2\264\004\n\020ServerAPIService\022e\n\016RegisterWo" +
-      "rker\022(.name.away.bot.api.RegisterWorkerM" +
-      "essage\032).name.away.bot.api.SuccessRespon" +
-      "seMessage\022a\n\014RemoveWorker\022&.name.away.bo" +
-      "t.api.RemoveWorkerMessage\032).name.away.bo" +
-      "t.api.SuccessResponseMessage\022F\n\007GetJobs\022" +
-      "\033.name.away.bot.api.WorkerId\032\036.name.away",
-      ".bot.api.JobsMessage\022X\n\010TakeJobs\022!.name." +
-      "away.bot.api.TakeJobMessage\032).name.away." +
-      "bot.api.SuccessResponseMessage\022`\n\014JobCom" +
-      "pleted\022%.name.away.bot.api.CompleteJobMe" +
+      "rId\030\001 \002(\t\022\r\n\005jobId\030\002 \002(\003\"E\n\022CompleteJobM",
+      "essage\022\r\n\005jobId\030\002 \002(\003\022\020\n\010workerId\030\001 \002(\t\022" +
+      "\016\n\006result\030\003 \001(\014\"8\n\026SuccessResponseMessag" +
+      "e\022\017\n\007success\030\001 \002(\010\022\r\n\005error\030\002 \001(\005\"\034\n\010Wor" +
+      "kerId\022\020\n\010workerId\030\001 \002(\t2\264\004\n\020ServerAPISer" +
+      "vice\022e\n\016RegisterWorker\022(.name.away.bot.a" +
+      "pi.RegisterWorkerMessage\032).name.away.bot" +
+      ".api.SuccessResponseMessage\022a\n\014RemoveWor" +
+      "ker\022&.name.away.bot.api.RemoveWorkerMess" +
+      "age\032).name.away.bot.api.SuccessResponseM" +
+      "essage\022F\n\007GetJobs\022\033.name.away.bot.api.Wo",
+      "rkerId\032\036.name.away.bot.api.JobsMessage\022X" +
+      "\n\010TakeJobs\022!.name.away.bot.api.TakeJobMe" +
       "ssage\032).name.away.bot.api.SuccessRespons" +
-      "eMessage\022R\n\nExecuteJob\022\035.name.away.bot.a" +
-      "pi.JobMessage\032%.name.away.bot.api.Comple" +
-      "teJobMessageB!\n\021name.away.bot.apiB\tServe" +
-      "rAPI\210\001\001"
+      "eMessage\022`\n\014JobCompleted\022%.name.away.bot" +
+      ".api.CompleteJobMessage\032).name.away.bot." +
+      "api.SuccessResponseMessage\022R\n\nExecuteJob" +
+      "\022\035.name.away.bot.api.JobMessage\032%.name.a" +
+      "way.bot.api.CompleteJobMessageB!\n\021name.a" +
+      "way.bot.apiB\tServerAPI\210\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4874,73 +6207,55 @@ public final class ServerAPI {
           internal_static_name_away_bot_api_ClientNotification_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_ClientNotification_descriptor,
-              new java.lang.String[] { "Type", "Data", },
-              name.away.bot.api.ServerAPI.ClientNotification.class,
-              name.away.bot.api.ServerAPI.ClientNotification.Builder.class);
+              new java.lang.String[] { "Type", "Data", });
           internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_name_away_bot_api_RegisterWorkerMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_RegisterWorkerMessage_descriptor,
-              new java.lang.String[] { "Id", "MaxOneTimeRequests", "Name", },
-              name.away.bot.api.ServerAPI.RegisterWorkerMessage.class,
-              name.away.bot.api.ServerAPI.RegisterWorkerMessage.Builder.class);
+              new java.lang.String[] { "Id", "MaxOneTimeRequests", "Name", });
           internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_name_away_bot_api_RemoveWorkerMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_RemoveWorkerMessage_descriptor,
-              new java.lang.String[] { "Id", },
-              name.away.bot.api.ServerAPI.RemoveWorkerMessage.class,
-              name.away.bot.api.ServerAPI.RemoveWorkerMessage.Builder.class);
+              new java.lang.String[] { "Id", });
           internal_static_name_away_bot_api_JobMessage_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_name_away_bot_api_JobMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_JobMessage_descriptor,
-              new java.lang.String[] { "Id", "Name", "Args", "WorkerId", },
-              name.away.bot.api.ServerAPI.JobMessage.class,
-              name.away.bot.api.ServerAPI.JobMessage.Builder.class);
+              new java.lang.String[] { "Id", "Name", "Args", "WorkerId", });
           internal_static_name_away_bot_api_JobsMessage_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_name_away_bot_api_JobsMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_JobsMessage_descriptor,
-              new java.lang.String[] { "Job", },
-              name.away.bot.api.ServerAPI.JobsMessage.class,
-              name.away.bot.api.ServerAPI.JobsMessage.Builder.class);
+              new java.lang.String[] { "Job", });
           internal_static_name_away_bot_api_TakeJobMessage_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_name_away_bot_api_TakeJobMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_TakeJobMessage_descriptor,
-              new java.lang.String[] { "WorkerId", "JobId", },
-              name.away.bot.api.ServerAPI.TakeJobMessage.class,
-              name.away.bot.api.ServerAPI.TakeJobMessage.Builder.class);
+              new java.lang.String[] { "WorkerId", "JobId", });
           internal_static_name_away_bot_api_CompleteJobMessage_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_name_away_bot_api_CompleteJobMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_CompleteJobMessage_descriptor,
-              new java.lang.String[] { "JobId", "Result", },
-              name.away.bot.api.ServerAPI.CompleteJobMessage.class,
-              name.away.bot.api.ServerAPI.CompleteJobMessage.Builder.class);
+              new java.lang.String[] { "JobId", "WorkerId", "Result", });
           internal_static_name_away_bot_api_SuccessResponseMessage_descriptor =
             getDescriptor().getMessageTypes().get(7);
           internal_static_name_away_bot_api_SuccessResponseMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_SuccessResponseMessage_descriptor,
-              new java.lang.String[] { "Success", "Error", },
-              name.away.bot.api.ServerAPI.SuccessResponseMessage.class,
-              name.away.bot.api.ServerAPI.SuccessResponseMessage.Builder.class);
+              new java.lang.String[] { "Success", "Error", });
           internal_static_name_away_bot_api_WorkerId_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_name_away_bot_api_WorkerId_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_name_away_bot_api_WorkerId_descriptor,
-              new java.lang.String[] { "WorkerId", },
-              name.away.bot.api.ServerAPI.WorkerId.class,
-              name.away.bot.api.ServerAPI.WorkerId.Builder.class);
+              new java.lang.String[] { "WorkerId", });
           return null;
         }
       };
@@ -4949,6 +6264,6 @@ public final class ServerAPI {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

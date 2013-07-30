@@ -36,6 +36,7 @@ message TakeJobMessage{
 
 message CompleteJobMessage{
     required int64 jobId = 2;
+    required string workerId = 1;
     optional bytes result = 3;
 }
 

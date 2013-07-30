@@ -5,11 +5,11 @@ import com.google.protobuf.RpcCallback;
 import com.google.protobuf.RpcController;
 import com.googlecode.protobuf.pro.duplex.RpcClientChannel;
 import com.googlecode.protobuf.pro.duplex.server.RpcClientRegistry;
-import com.sun.xml.internal.ws.util.ByteArrayBuffer;
 import name.away.bot.api.ServerAPI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.ByteBuffer;
 import java.util.List;
 
 /**
@@ -30,6 +30,12 @@ public class ServerAPIImpl extends ServerAPI.ServerAPIService {
         return  ServerAPI.SuccessResponseMessage.newBuilder().setSuccess(value).setError(errorCode).build();
     }
 
+    private void notificationAboutAllJobs(){
+        for(ServerAPI.JobMessage job : store.getFreeJobs("")){
+            sendNotificationOfNewJob(job);
+        }
+    }
+
     @Override
     public void registerWorker(RpcController controller, ServerAPI.RegisterWorkerMessage request, RpcCallback<ServerAPI.SuccessResponseMessage> done) {
         Store.BotInfo info = store.findBot(request.getId());
@@ -42,10 +48,8 @@ public class ServerAPIImpl extends ServerAPI.ServerAPIService {
         info.setCanExecute(true);
         done.run(buildSuccess(true, -1));
         log.info("Register: {}", info.getId());
-        ServerAPI.JobsMessage.Builder jobs = ServerAPI.JobsMessage.newBuilder();
-        for(ServerAPI.JobMessage job : store.getFreeJobs("")){
-            sendNotificationOfNewJob(job);
-        }
+
+        notificationAboutAllJobs();
     }
 
     @Override
@@ -53,6 +57,7 @@ public class ServerAPIImpl extends ServerAPI.ServerAPIService {
         if (store.removeBot(request.getId())){
             log.info("Unregistered: {}", request.getId());
             done.run(buildSuccess(true, -1));
+            notificationAboutAllJobs();
         } else {
             done.run(buildSuccess(false, 1));
         }
@@ -79,13 +84,11 @@ public class ServerAPIImpl extends ServerAPI.ServerAPIService {
 
     @Override
     public void jobCompleted(RpcController controller, ServerAPI.CompleteJobMessage request, RpcCallback<ServerAPI.SuccessResponseMessage> done) {
-        if (store.completedJob(request.getJobId(), new ByteArrayBuffer(request.getResult().toByteArray()))){
+        if (store.completedJob(request.getJobId(), ByteBuffer.wrap(request.getResult().toByteArray()))){
             done.run(buildSuccess(true, -1));
+            notificationAboutAllJobs();
         } else {
             done.run(buildSuccess(false, 3));
-        }
-        for(ServerAPI.JobMessage job : store.getFreeJobs("")){
-            sendNotificationOfNewJob(job);
         }
     }
 
@@ -109,18 +112,23 @@ public class ServerAPIImpl extends ServerAPI.ServerAPIService {
         long jobId = store.addJob(request.getName(),request.getArgsList().toArray(new ByteString[request.getArgsCount()]));
         Store.JobContainer storeJob = store.getJob(jobId);
         sendNotificationOfNewJob(storeJob.getJob());
+        Object completeWaiter = storeJob.getCompleteWaiter();
 
-        ByteArrayBuffer buff = null;
+        ByteBuffer buff = null;
+        String workerId = null;
         try {
-            storeJob.getCompleteWaiter().wait();
+            synchronized (completeWaiter){
+                completeWaiter.wait();
+            }
             buff = store.getJobResult(jobId);
+            workerId = store.getWorkerByJob(jobId);
         } catch (InterruptedException e) {
             log.error("Can not wait for complete job", e);
         }
         if (buff != null){
-            done.run(ServerAPI.CompleteJobMessage.newBuilder().setJobId(jobId).setResult(ByteString.copyFrom(buff.getRawData())).build());
+            done.run(ServerAPI.CompleteJobMessage.newBuilder().setWorkerId(workerId).setJobId(jobId).setResult(ByteString.copyFrom(buff.array())).build());
         } else {
-            done.run(ServerAPI.CompleteJobMessage.newBuilder().setJobId(jobId).setResult(ByteString.copyFromUtf8("")).build());
+            done.run(ServerAPI.CompleteJobMessage.newBuilder().setWorkerId("").setJobId(jobId).setResult(ByteString.copyFromUtf8("")).build());
         }
     }
 }

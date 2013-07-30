@@ -105,12 +105,23 @@ public class Main {
             }
             try {
                 Thread.sleep(10000);
-                client.getService().executeJob(client.getController(), ServerAPI.JobMessage.newBuilder().setId(-1).setName("test").addArgs(ByteString.copyFromUtf8("hello")).build(), new RpcCallback<ServerAPI.CompleteJobMessage>() {
-                    @Override
-                    public void run(ServerAPI.CompleteJobMessage completeJobMessage) {
-                        log.info("Job Complete #{} - {}", completeJobMessage.getJobId(), completeJobMessage.getResult().toStringUtf8());
-                    }
-                });
+                /*if (client != null && client.isConnected()){
+                    client.getService().executeJob(client.getController(),
+                            ServerAPI.JobMessage.newBuilder()
+                                    .setId(-1)
+                                    .setName("download")
+                                    .addArgs(ByteString.copyFromUtf8("http://www.kinopoisk.ru/film/506005/"))
+                                    .addArgs(ByteString.copyFromUtf8(""))
+                                    .addArgs(ByteString.copyFromUtf8(""))
+                                    .addArgs(ByteString.copyFromUtf8(""))
+                                    .build(),
+                            new RpcCallback<ServerAPI.CompleteJobMessage>() {
+                        @Override
+                        public void run(ServerAPI.CompleteJobMessage completeJobMessage) {
+                            log.info("Job Complete #{} - {}", completeJobMessage.getJobId(), completeJobMessage.getResult().toStringUtf8());
+                        }
+                    });
+                }*/
             } catch (InterruptedException e) {
                 log.error("Can not sleep thread", e);
             }

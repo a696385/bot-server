@@ -2,9 +2,9 @@ package name.away.bot.server;
 
 import com.google.protobuf.ByteString;
 import com.googlecode.protobuf.pro.duplex.RpcClientChannel;
-import com.sun.xml.internal.ws.util.ByteArrayBuffer;
 import name.away.bot.api.ServerAPI;
 
+import java.nio.ByteBuffer;
 import java.util.*;
 
 /**
@@ -106,7 +106,7 @@ public class Store {
 
     LinkedHashMap<Long, JobContainer> jobs = new LinkedHashMap<Long, JobContainer>();
     LinkedHashMap<Long, TackedJobInfo> tackedJobs = new LinkedHashMap<Long, TackedJobInfo>();
-    LinkedHashMap<Long, ByteArrayBuffer> completedJobs = new LinkedHashMap<Long, ByteArrayBuffer>();
+    LinkedHashMap<Long, ByteBuffer> completedJobs = new LinkedHashMap<Long, ByteBuffer>();
     LinkedList<BotInfo> bots = new LinkedList<BotInfo>();
 
     public Store(){
@@ -128,6 +128,13 @@ public class Store {
         for(BotInfo info : bots){
             if (info.getId().equals(id)){
                 bots.remove(info);
+                Set<Long> longSet = tackedJobs.keySet();
+                Long[] longs = longSet.toArray(new Long[longSet.size()]);
+                for(int i = 0;i < tackedJobs.size(); i++){
+                    if (tackedJobs.get(longs[i]).worker.equals(info) && !tackedJobs.get(longs[i]).completed){
+                        tackedJobs.remove(longs[i]);
+                    }
+                }
                 return true;
             }
         }
@@ -170,20 +177,26 @@ public class Store {
         return jobs.get(jobId);
     }
 
-    public synchronized boolean completedJob(long jobId, ByteArrayBuffer data){
+    public synchronized boolean completedJob(long jobId, ByteBuffer data){
         TackedJobInfo info = tackedJobs.get(jobId);
         if (info == null || info.completed) return false;
         info.completed = true;
         completedJobs.put(jobId, data);
         info.worker.incNowWorked(-1);
 
-        Object completeWaiter = getJob(jobId).getCompleteWaiter();
-        completeWaiter.notifyAll();
+        Object completeWaiter = jobs.get(jobId).getCompleteWaiter();
+        synchronized (completeWaiter){
+            completeWaiter.notifyAll();
+        }
 
         return true;
     }
 
-    public synchronized ByteArrayBuffer getJobResult(long jobId){
+    public synchronized ByteBuffer getJobResult(long jobId){
         return completedJobs.get(jobId);
+    }
+
+    public synchronized String getWorkerByJob(long jobId){
+        return tackedJobs.get(jobId).worker.getId();
     }
 }
